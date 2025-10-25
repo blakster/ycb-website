@@ -274,11 +274,11 @@ body {
 
 .card-gradient-testimonial {
   background: linear-gradient(135deg, #ffffff 0%, #fefefe 30%, #f8fafc 100%);
-  border: 1px solid rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.08);
+  border-radius: 12px;
   box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 4px 8px -2px rgba(0, 0, 0, 0.06),
+    0 2px 4px -1px rgba(0, 0, 0, 0.04);
 }
 
 .stats-card-gradient {
@@ -325,7 +325,103 @@ body {
     ), linear-gradient(180deg, #fefefe 0%, #f8fafc 50%, #f1f5f9 100%);
 }
 
+/* Typewriter effect for hero headline */
+.typewriter-line {
+  display: inline-block;
+  overflow: hidden; /* Ensures the text is revealed like typing */
+  white-space: nowrap;
+}
+
+/* Caret support (via ::after so we don't clash with typing animations) */
+.typewriter-caret,
+.typewriter-caret-light {
+  position: relative;
+}
+
+.typewriter-caret::after,
+.typewriter-caret-light::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1px; /* sit at the very end of the currently revealed text */
+  width: 2px;
+  background: currentColor;
+  opacity: 0; /* hidden by default; window classes will reveal */
+}
+
+/* White caret for gradient text on dark background */
+.typewriter-caret-light::after {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Faster typing and adjusted stagger */
+.typewriter-1 { animation: typing-1 1.2s steps(14, end) 0s both; }
+/* Keep 2nd and 3rd lines invisible until their typing animation begins
+   to avoid any sub-pixel bleed of the first character before reveal. */
+.typewriter-2 {
+  opacity: 0;
+  animation:
+    typing-2 1.0s steps(10, end) 1.25s both,
+    make-visible 0s linear 1.25s forwards;
+}
+.typewriter-3 {
+  opacity: 0;
+  animation:
+    typing-3 1.0s steps(10, end) 2.35s both,
+    make-visible 0s linear 2.35s forwards;
+}
+
+@keyframes typing-1 { from { max-width: 0; } to { max-width: 100%; } }
+@keyframes typing-2 { from { max-width: 0; } to { max-width: 100%; } }
+@keyframes typing-3 { from { max-width: 0; } to { max-width: 100%; } }
+
+/* Instantly flips opacity to 1 at the start time (uses delay above). */
+@keyframes make-visible { to { opacity: 1; } }
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: currentColor; }
+}
+
+/* Control when each line's caret is visible (on ::after) */
+@keyframes caret-visible-window {
+  0% { opacity: 1; }
+  99% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes caret-visible-stay {
+  0% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* Windows for each span; these do NOT affect typing animations */
+.caret-window-1::after {
+  /* show during first line typing, then hide (no overlap) */
+  animation: caret-visible-window 1.18s linear 0s both;
+}
+
+.caret-window-2::after {
+  /* appear only while the second span types; starts just after line 1 ends */
+  animation: caret-visible-window 1.05s linear 1.18s both;
+}
+
+.caret-window-3::after {
+  /* appear for the third span and then stay visible at the end */
+  animation: caret-visible-stay 1s linear 2.28s both;
+}
+
 /* Font utility classes */
+/*
+  Disable the blinking caret for the hero typewriter text while keeping
+  the typing/reveal animation intact. We override the pseudo-element
+  content so nothing renders, regardless of the window animations above.
+*/
+.typewriter-caret::after,
+.typewriter-caret-light::after {
+  content: none !important;
+}
 .font-heading {
   font-family: var(--font-newsreader), "Newsreader", "Times New Roman", serif;
   font-weight: 400;
@@ -398,6 +494,33 @@ body {
 }
 
 .btn-primary-hover:hover::before {
+  left: 100%;
+}
+
+/* Gold button hover effects with reflective shine */
+.btn-gold-hover {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.8s;
+}
+
+.btn-gold-hover:hover::before {
   left: 100%;
 }
 

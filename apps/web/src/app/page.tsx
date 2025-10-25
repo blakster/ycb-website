@@ -82,7 +82,7 @@ const NotificationBanner = () => {
 
   return (
     <div
-      className={`fixed top-4 right-4 z-50 max-w-sm transition-all duration-300 sm:max-w-md lg:max-w-lg ${
+      className={`fixed top-4 right-4 z-50 max-w-sm transition-all duration-300 sm:max-w-md ${
         isClosing ? "translate-x-full opacity-0" : "translate-x-0 opacity-100"
       }`}
     >
@@ -116,12 +116,11 @@ const NotificationBanner = () => {
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-            Applications for the 6th edition of YCB are live until November 22,
-            2025.
+            Applications for the 6th season of YCB to be held from 17-23 December at IIT Delhi campus are live until November 22, 2025.
           </p>
           <div className="flex items-center gap-2">
             <button
-              className="btn-gold-gradient smooth-hover hover:-translate-y-0.5 rounded-md px-3 py-1.5 font-semibold text-[#050a30] text-xs shadow-sm transition-all duration-200 sm:text-sm"
+              className="btn-gold-hover group inline-flex h-10 w-fit items-center justify-center gap-2 rounded-[10px] border-2 border-[gold] bg-[gold] px-4 py-2 font-bold text-[#050a30] text-sm leading-none transition-all duration-300 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-md"
               onClick={() => {
                 window.open(
                   "https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk",
@@ -135,7 +134,7 @@ const NotificationBanner = () => {
               Register
             </button>
             <button
-              className="rounded-md border border-gray/10 px-3 py-1.5 font-medium text-gray-700 text-xs transition-colors duration-200 hover:bg-gray-50 sm:text-sm"
+              className="inline-flex h-10 items-center justify-center rounded-[10px] border border-gray/15 px-4 py-2 font-medium text-gray-700 text-sm transition-colors duration-200 hover:bg-gray-50"
               onClick={handleClose}
               type="button"
             >
@@ -315,7 +314,7 @@ const TestimonialCard = ({
     .trim();
 
   return (
-    <div className="card-hover relative mx-2 h-[260px] w-[320px] flex-shrink-0 overflow-clip sm:h-[320px] sm:w-[480px] md:h-[380px] md:w-[620px]">
+    <div className="card-hover relative mx-2 h-[280px] w-[340px] flex-shrink-0 overflow-hidden rounded-[12px] sm:h-[320px] sm:w-[480px] md:h-[380px] md:w-[620px]">
       {/* Card Background with gradient */}
       <div className="card-gradient-testimonial absolute inset-0 rounded-[12px] transition-all duration-300" />
 
@@ -547,11 +546,15 @@ export default function Home() {
                   </span>
                 </div> */}
 
-                {/* Main Heading */}
+                {/* Main Heading with typewriter effect */}
                 <h1 className="font-bold text-4xl leading-tight md:text-5xl lg:text-7xl">
-                  <span className="text-white">Dream it.</span>{" "}
-                  <span className="bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF8C00] bg-clip-text text-transparent">
-                    Build it. Change it.
+                  <span className="typewriter-line typewriter-1 typewriter-caret caret-window-1 text-white">Dream it.</span>{" "}
+                  <span className="typewriter-line typewriter-2 typewriter-caret caret-window-2 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF8C00] bg-clip-text text-transparent">
+                    Build it.
+                  </span>
+                  <br />
+                  <span className="typewriter-line typewriter-3 typewriter-caret-light caret-window-3 pr-1 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF8C00] bg-clip-text text-transparent">
+                    Change it.
                   </span>
                 </h1>
 
@@ -709,14 +712,14 @@ export default function Home() {
             <div className="flex justify-center">
               <Button
                 asChild
-                className="group hover:-translate-y-1 hover-glow flex h-12 w-fit items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-300 hover:border-white hover:bg-white hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
+                className="btn-gold-hover group hover:-translate-y-1 hover-glow flex h-12 w-fit items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-500 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
                 size="lg"
               >
                 <Link href="/about">
                   <span className="hidden sm:inline">Read More About YCB</span>
                   <span className="sm:hidden">Read More</span>
                   <svg
-                    className="transition-transform duration-300 group-hover:translate-x-2"
+                    className="transition-transform duration-500 group-hover:translate-x-2"
                     fill="none"
                     height="18"
                     stroke="currentColor"
@@ -817,13 +820,13 @@ export default function Home() {
             <div className="mt-8 flex justify-center">
               <Button
                 asChild
-                className="group hover:-translate-y-1 hover-glow flex h-12 w-fit items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-300 hover:border-white hover:bg-white hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
+                className="btn-gold-hover group hover:-translate-y-1 hover-glow flex h-12 w-fit items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-500 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
                 size="lg"
               >
                 <Link href="/network">
                   View Our Network
                   <svg
-                    className="transition-transform duration-300 group-hover:translate-x-2"
+                    className="transition-transform duration-500 group-hover:translate-x-2"
                     fill="none"
                     height="18"
                     stroke="currentColor"
@@ -1128,14 +1131,14 @@ export default function Home() {
             <div className="relative z-30 mt-16 flex justify-center pt-2">
               <Button
                 asChild
-                className="group hover:-translate-y-1 hover-glow flex h-12 w-fit items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-300 hover:border-white hover:bg-white hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
+                className="btn-gold-hover group hover:-translate-y-1 hover-glow flex h-12 w-fit items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-500 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
                 size="lg"
               >
                 <Link href="/featured">
                   <span className="hidden sm:inline">View More</span>
                   <span className="sm:hidden">View More</span>
                   <svg
-                    className="transition-transform duration-300 group-hover:translate-x-2"
+                    className="transition-transform duration-500 group-hover:translate-x-2"
                     fill="none"
                     height="18"
                     stroke="currentColor"
@@ -1197,17 +1200,19 @@ function MobileSummaryMarquee({
       >
         {summaryPoints.map(({ Icon, title, desc }, idx) => (
           <div
-            className="mx-2 w-[82vw] max-w-[360px]"
+            className="mx-2 w-[86vw] max-w-[380px]"
             key={`summary-marquee-${idx}`}
           >
-            <div className="rounded-xl bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-white/10">
-              <div className="mb-3 inline-flex rounded-xl bg-[gold]/20 p-3">
-                <Icon className="h-6 w-6 text-[gold]" />
+            <div className="rounded-xl bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 min-h-[210px] flex flex-col items-center justify-center text-center">
+              <div className="flex h-full flex-col items-center justify-center text-center gap-2">
+                <div className="mb-3 inline-flex rounded-xl bg-[gold]/20 p-3">
+                  <Icon className="h-6 w-6 text-[gold]" />
+                </div>
+                <h4 className="mb-1 font-semibold text-base text-white text-center">
+                  {title}
+                </h4>
+                <p className="text-gray-300 text-sm leading-relaxed">{desc}</p>
               </div>
-              <h4 className="mb-2 font-semibold text-base text-white">
-                {title}
-              </h4>
-              <p className="text-gray-300 text-sm leading-relaxed">{desc}</p>
             </div>
           </div>
         ))}

@@ -80,7 +80,7 @@ export default function Newsletter() {
               />
             </div>
             <button
-              className="group hover:-translate-y-1 hover-glow mx-auto flex h-12 w-full items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-300 hover:border-white hover:bg-white hover:text-[#050a30] hover:shadow-lg disabled:transform-none disabled:cursor-not-allowed disabled:opacity-50 sm:h-14 sm:w-fit sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
+              className="btn-gold-hover group hover:-translate-y-1 hover-glow mx-auto flex h-12 w-full items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-500 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-lg disabled:transform-none disabled:cursor-not-allowed disabled:opacity-50 sm:h-14 sm:w-fit sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
               disabled={isLoading || isSubscribed}
               type="submit"
             >
@@ -125,7 +125,7 @@ export default function Newsletter() {
                   <span className="hidden sm:inline">Subscribe</span>
                   <span className="sm:hidden">Subscribe</span>
                   <svg
-                    className="transition-transform duration-300 group-hover:translate-x-2"
+                    className="transition-transform duration-500 group-hover:translate-x-2"
                     fill="none"
                     height="18"
                     stroke="currentColor"

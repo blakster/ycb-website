@@ -25,9 +25,7 @@ export default function Footer() {
               />
               {/* Description below logo */}
               <p className="max-w-44 text-white/60 text-xs leading-relaxed">
-                Young Changemakers Bootcamp is a flagship program by Tale of
-                Humankind Foundation to empower high schoolers with changemaking
-                skills.
+                <span className="text-white font-semibold">Young Changemakers Bootcamp</span> is a flagship program by <span className="text-white font-semibold">Tale of Humankind</span> Foundation to empower high schoolers with changemaking skills.
               </p>
             </div>
 
