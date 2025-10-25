@@ -798,7 +798,7 @@ const editionsData = {
 
     narrativeContent: {
       intro:
-        "YCB June 2025 marked a defining milestone, celebrating five transformative cycles of learning, innovation, and community. This edition brought together 70 changemakers from across India to reimagine the future and turn ideas into meaningful impact.",
+        "YCB June 2025 marked a defining milestone, celebrating five transformative cycles of learning, innovation, and community. This edition brought together 50 changemakers from across India to reimagine the future and turn ideas into meaningful impact.",
       visionaryLeadership:
         "The fifth edition featured a stellar lineup of visionaries whose sessions challenged and inspired in equal measure. From Dr. Rishi Mohan Bhatnagar's powerful inaugural address and Ajai Chowdhary's insights into entrepreneurship to Prof. Aheli Choudhary, Prof. Pragma Kaur, and Sagarika Deka's sessions on innovation, leadership, and sustainability, every moment expanded students' worldviews. Prof. Ganesh Bagler brought his unique perspective on computational thinking, while Yashveer Singh returned to share how the YCB alumni network is creating real-world change. The finale was graced by Meenakshi Lekhi and Ojasvi Gupta, whose presence added gravitas and inspiration to the 'My Idea for Change' competition, reminding everyone that changemaking is a collective responsibility.",
       handsOnLearning:
