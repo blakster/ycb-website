@@ -85,7 +85,7 @@ const SnapshotsSlider = () => {
     },
     {
       title: "Final Presentations",
-      image: img2244,
+      image: img2253,
       description: "Showcasing innovative ideas to mentors and judges",
     },
     {
@@ -105,7 +105,7 @@ const SnapshotsSlider = () => {
     },
     {
       title: "Outdoor Learning",
-      image: img2253,
+      image: img2244,
       description: "Learning beyond the classroom walls",
     },
     {
@@ -179,10 +179,13 @@ const SnapshotsSlider = () => {
                   <Image
                     alt={slide.title}
                     className={`object-cover ${
-                      slide.title === "Prototype Building" ? "object-[center_25%]" :
-                      slide.title === "Hands-on Practice" ? "object-[center_75%]" :
-                      slide.title === "Outdoor Learning" ? "object-[center_75%]" :
-                      "object-center"
+                      slide.title === "Prototype Building"
+                        ? "object-[center_25%]"
+                        : slide.title === "Hands-on Practice"
+                          ? "object-[center_75%]"
+                          : slide.title === "Outdoor Learning"
+                            ? "object-[center_75%]"
+                            : "object-center"
                     }`}
                     fill
                     src={slide.image}
@@ -253,8 +256,9 @@ const SnapshotsSlider = () => {
 const AboutPage = () => {
   const [activeSection, setActiveSection] = useState<string>("about");
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [selectedFaqCategory, setSelectedFaqCategory] =
-    useState<FaqCategory>("Application & Admission");
+  const [selectedFaqCategory, setSelectedFaqCategory] = useState<FaqCategory>(
+    "Application & Admission"
+  );
   const [showFloatingNav, setShowFloatingNav] = useState(false);
   const [isFloatingNavOpen, setIsFloatingNavOpen] = useState(false);
 
@@ -331,7 +335,7 @@ const AboutPage = () => {
       description: [
         "Orientation",
         "Campus Walk",
-        "Informal Interaction with Students, Team & Mentors"
+        "Informal Interaction with Students, Team & Mentors",
       ],
       icon: (
         <Image
@@ -353,7 +357,7 @@ const AboutPage = () => {
         "Identifying Problems through Observation",
         "Hands-on Robotics Workshop",
         "Local Trip to Delhi",
-        "Icebreaker Games"
+        "Icebreaker Games",
       ],
       icon: <Search className="h-5 w-5 md:h-6 md:w-6" />,
       color: "from-green-400 to-green-600",
@@ -368,7 +372,7 @@ const AboutPage = () => {
         "How to think like an entrepreneur?",
         "Expressive Art Therapy",
         "Web 3.0 & Blockchain",
-        "Movie Screening"
+        "Movie Screening",
       ],
       icon: (
         <Image
@@ -389,7 +393,7 @@ const AboutPage = () => {
         "Design Thinking + Problem Validation using DT Tools",
         "Creativity, Innovation & Inventive Problem Solving",
         "Introduction to Web & App Development",
-        "Talent Night"
+        "Talent Night",
       ],
       icon: (
         <Image
@@ -411,7 +415,7 @@ const AboutPage = () => {
         "Introduction to Financial Concepts for Business",
         "How to Prepare a Business Plan?",
         "Preparation for Innovative Pitching Competition",
-        "The Art of Storytelling & Photography"
+        "The Art of Storytelling & Photography",
       ],
       icon: (
         <Image
@@ -433,7 +437,7 @@ const AboutPage = () => {
         "Valedictory Ceremony",
         "Mini-Farewell",
         "Desi Adda Sports Event",
-        "Musical Night"
+        "Musical Night",
       ],
       icon: <Mic className="h-5 w-5 md:h-6 md:w-6" />,
       color: "from-indigo-400 to-indigo-600",
@@ -441,9 +445,7 @@ const AboutPage = () => {
     {
       day: "Day 6",
       title: "Closing & Departure",
-      description: [
-        "Departure from IIT Delhi campus"
-      ],
+      description: ["Departure from IIT Delhi campus"],
       icon: <GraduationCap className="h-5 w-5 md:h-6 md:w-6" />,
       color: "from-pink-400 to-pink-600",
     },
@@ -1255,7 +1257,9 @@ const AboutPage = () => {
                         </div>
 
                         <div className="rounded-lg bg-green-50 p-4">
-                          <span className="mb-1 inline-flex items-center rounded-full bg-green-200 px-2 py-0.5 text-xs font-semibold uppercase text-green-800">Optional</span>
+                          <span className="mb-1 inline-flex items-center rounded-full bg-green-200 px-2 py-0.5 text-xs font-semibold uppercase text-green-800">
+                            Optional
+                          </span>
                           <div className="font-bold text-[#050a30] text-xl">
                             ₹12,000
                           </div>
@@ -1269,11 +1273,15 @@ const AboutPage = () => {
                           <div className="rounded-md border border-amber-200 bg-amber-50 p-3">
                             <span className="text-base font-semibold text-amber-900">
                               Application Fee: ₹500
-                              <span className="font-normal"> (non-refundable)</span>
+                              <span className="font-normal">
+                                {" "}
+                                (non-refundable)
+                              </span>
                             </span>
                           </div>
                           <div className="mt-3 text-sm text-gray-800">
-                            <strong>Deadline to apply:</strong> November 15, 2025
+                            <strong>Deadline to apply:</strong> November 15,
+                            2025
                           </div>
                         </div>
                       </div>
@@ -1381,7 +1389,7 @@ const AboutPage = () => {
               <div className="space-y-8">
                 <div className="rounded-2xl border border-gray-100 bg-gradient-to-br from-white via-blue-50/20 to-indigo-50/30 p-8 shadow-lg">
                   <h2 className="mb-6 font-bold text-3xl text-[#050a30]">
-                    What Our Alumni Say, in their own words
+                    In their own words
                   </h2>
                   <p className="mb-8 text-gray-600">
                     Hear from our alumni about how YCB shaped their journey and
