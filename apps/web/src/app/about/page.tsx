@@ -1164,7 +1164,7 @@ const AboutPage = () => {
                         className="inline-flex items-center gap-2 rounded-lg bg-[#050a30] px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-[#050a30]/90"
                         href="/network"
                       >
-                        <span>See our complete mentor and speaker network</span>
+                        <span>View More</span>
                         <ArrowRight className="h-4 w-4" />
                       </a>
                     </div>
