@@ -529,10 +529,15 @@ export default function HowToApply() {
                     <p className="mb-6 text-gray-700">
                       Start your journey as a young changemaker today!
                     </p>
-                    <button className="group hover:-translate-y-1 hover-glow inline-flex items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-8 py-4 font-bold text-[#050a30] transition-all duration-300 hover:border-white hover:bg-white hover:text-[#050a30] hover:shadow-lg">
+                    <a 
+                      href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group hover:-translate-y-1 hover-glow inline-flex items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-8 py-4 font-bold text-[#050a30] transition-all duration-300 hover:border-white hover:bg-white hover:text-[#050a30] hover:shadow-lg"
+                    >
                       Start Application
                       <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

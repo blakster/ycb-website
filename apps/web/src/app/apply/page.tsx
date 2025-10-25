@@ -147,9 +147,11 @@ export default function ApplyPage() {
                         className="flex items-center justify-center gap-2 font-bold"
                         href={
                           program.status !== "Coming Soon"
-                            ? "/how-to-apply"
+                            ? "https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
                             : "#"
                         }
+                        target={program.status !== "Coming Soon" ? "_blank" : undefined}
+                        rel={program.status !== "Coming Soon" ? "noopener noreferrer" : undefined}
                       >
                         {program.status === "Coming Soon"
                           ? "Coming Soon"
@@ -182,8 +184,13 @@ export default function ApplyPage() {
                 asChild
                 className="smooth-hover bg-[gold] px-6 py-3 font-bold text-[#1a365d] transition-all duration-300 hover:scale-105 hover:bg-[gold]/90"
               >
-                <Link className="flex items-center gap-2" href="/how-to-apply">
-                  Learn How to Apply
+                <Link 
+                  className="flex items-center gap-2" 
+                  href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Apply Now
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>

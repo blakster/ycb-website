@@ -199,7 +199,7 @@ export default function Header() {
               asChild
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90 lg:px-4 lg:py-2 lg:text-sm xl:px-6 xl:text-base"
             >
-              <Link href="/apply">Apply</Link>
+              <a href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer">Apply</a>
             </Button>
           </div>
 
@@ -210,7 +210,7 @@ export default function Header() {
               asChild
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90"
             >
-              <Link href="/apply">Apply</Link>
+              <a href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer">Apply</a>
             </Button>
 
             {/* Mobile Hamburger Menu Button */}

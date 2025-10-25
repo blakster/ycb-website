@@ -1,177 +1,12 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
+import Newsletter from "./newsletter";
 import tohkLogo from "@/assets/tohk.jpg";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) {
-      return;
-    }
-
-    setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubscribed(true);
-    setIsLoading(false);
-    setEmail("");
-
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubscribed(false), 3000);
-  };
-
   return (
     <>
       {/* Newsletter Subscription Section */}
-      <section className="section-gradient-light relative w-full py-8 lg:py-12">
-        {/* Optional radial spots overlay */}
-        <div className="radial-spots-light" />
-
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #e5e7eb 1px, transparent 1px),
-              linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
-            `,
-            backgroundSize: "40px 40px",
-          }}
-        />
-
-        <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
-          <div className="mb-8">
-            {/* Icon */}
-            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 shadow-lg">
-              <svg
-                className="h-8 w-8 text-white"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-              </svg>
-            </div>
-
-            {/* Heading */}
-            <h3 className="mb-4 font-bold text-3xl text-[#050a30] lg:text-4xl">
-              Stay Connected with YCB
-            </h3>
-
-            {/* Description */}
-            <p className="mx-auto max-w-2xl text-[#718096] text-lg leading-relaxed">
-              Stay updated on programs, deadlines, and changemaking
-              opportunities.
-            </p>
-          </div>
-
-          {/* Newsletter Form */}
-          <form className="mx-auto max-w-md" onSubmit={handleNewsletterSubmit}>
-            <div className="flex flex-col gap-4 sm:flex-row sm:gap-2">
-              <div className="flex-1">
-                <input
-                  className="w-full rounded-xl border border-gray-300 bg-white px-6 py-4 text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-300 focus:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400/30"
-                  disabled={isLoading || isSubscribed}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  required
-                  type="email"
-                  value={email}
-                />
-              </div>
-              <button
-                className="group hover:-translate-y-1 hover-glow mx-auto flex h-12 w-full items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-300 hover:border-white hover:bg-white hover:text-[#050a30] hover:shadow-lg disabled:transform-none disabled:cursor-not-allowed disabled:opacity-50 sm:h-14 sm:w-fit sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"
-                disabled={isLoading || isSubscribed}
-                type="submit"
-              >
-                {isLoading ? (
-                  <>
-                    <svg
-                      className="h-5 w-5 animate-spin"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="opacity-75"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <span className="hidden sm:inline">Subscribing...</span>
-                    <span className="sm:hidden">Subscribing...</span>
-                  </>
-                ) : isSubscribed ? (
-                  <>
-                    <svg
-                      className="h-5 w-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                    </svg>
-                    <span className="hidden sm:inline">Subscribed!</span>
-                    <span className="sm:hidden">Subscribed!</span>
-                  </>
-                ) : (
-                  <>
-                    <span className="hidden sm:inline">Subscribe</span>
-                    <span className="sm:hidden">Subscribe</span>
-                    <svg
-                      className="transition-transform duration-300 group-hover:translate-x-2"
-                      fill="none"
-                      height="18"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      width="18"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <title>Subscribe</title>
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </>
-                )}
-              </button>
-            </div>
-
-            {/* Success Message */}
-            {isSubscribed && (
-              <div className="mt-4 flex items-center justify-center gap-2 text-yellow-600">
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                </svg>
-                <span className="font-medium text-sm">
-                  Thanks for subscribing! You'll hear from us soon.
-                </span>
-              </div>
-            )}
-          </form>
-
-          {/* Privacy Note */}
-          <p className="mt-6 text-gray-600 text-sm">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
-        </div>
-      </section>
+      <Newsletter />
 
       {/* Original Footer */}
       <footer className="bg-soft-dark py-16 text-white">
@@ -240,7 +75,9 @@ export default function Footer() {
                 <li>
                   <a
                     className="transition-colors hover:text-[gold]"
-                    href="/how-to-apply"
+                    href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Apply
                   </a>
@@ -306,6 +143,7 @@ export default function Footer() {
                     ycbootcamp@taleofhumankind.org
                   </a>
                 </li>
+
                 <li className="flex items-center justify-center space-x-2 md:justify-start">
                   <svg
                     className="h-4 w-4 fill-current"
@@ -323,40 +161,8 @@ export default function Footer() {
                     Instagram
                   </a>
                 </li>
-                <li className="flex items-center justify-center space-x-2 md:justify-start">
-                  <svg
-                    className="h-4 w-4 fill-current"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                  <a
-                    className="transition-colors hover:text-[gold]"
-                    href="https://x.com/taleofhumankind"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    X
-                  </a>
-                </li>
-                <li className="flex items-center justify-center space-x-2 md:justify-start">
-                  <svg
-                    className="h-4 w-4 fill-current"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                  <a
-                    className="transition-colors hover:text-[gold]"
-                    href="https://www.linkedin.com/in/the-tale-of-humankind-4a6ba6235/"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
+
+
               </ul>
             </div>
           </div>

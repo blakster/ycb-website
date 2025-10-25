@@ -107,7 +107,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-[#050a30] text-xl">
                       Email
                     </h3>
-                    <p className="text-[#718096] text-lg">contact@ycb.org</p>
+                    <p className="text-[#718096] text-lg">ycbootcamp@taleofhumankind.org</p>
                   </div>
                 </div>
               </div>

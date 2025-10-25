@@ -13,6 +13,7 @@ import {
   Wrench,
 } from "lucide-react";
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import Link from "next/link";
 import {
   type ElementType,
@@ -35,6 +36,11 @@ import img_2243 from "./hero_images/IMG_2243.jpg";
 import img_2247 from "./hero_images/IMG_2247.jpg";
 import img_2264 from "./hero_images/IMG_2264.jpg";
 import img_7940 from "./hero_images/IMG_7940.jpg";
+import ajaiAvatar from "./testi/Ajai.avif";
+import ariqaAvatar from "./testi/Ariqa.jpeg";
+import yashveerAvatar from "./testi/Yashveer.jpg";
+import praveshAvatar from "./testi/Pravesh.jpg";
+import vishalAvatar from "./testi/Vishal.jpg";
 
 // Notification Banner Component
 const NotificationBanner = () => {
@@ -106,18 +112,17 @@ const NotificationBanner = () => {
           <div className="flex items-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-[gold]" />
             <h3 className="font-semibold text-[#050a30] text-sm sm:text-base">
-              YCB Delhi Workshop
+              YCB Season-6
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-            Join 200+ young changemakers this November for a focused week of
-            innovation, leadership, and real-world problem solving.
+            Applications for the 6th edition of YCB are live until November 22, 2025.
           </p>
           <div className="flex items-center gap-2">
             <button
               className="btn-gold-gradient smooth-hover hover:-translate-y-0.5 rounded-md px-3 py-1.5 font-semibold text-[#050a30] text-xs shadow-sm transition-all duration-200 sm:text-sm"
               onClick={() => {
-                window.open("#", "_blank");
+                window.open("https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk", "_blank", "noopener,noreferrer");
                 handleClose();
               }}
               type="button"
@@ -226,11 +231,20 @@ const heroImages = [
 ];
 
 // Testimonial data (updated)
-const testimonials = [
+type Testimonial = {
+  id: number;
+  name: string;
+  role: string;
+  quote: string;
+  avatar?: string | StaticImageData;
+};
+
+const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Ajai Chowdhry",
     role: "Co-founder, HCL",
+    avatar: ajaiAvatar,
     quote:
       "The Young Changemakers Bootcamp is shaping the next generation of thinkers, innovators, and leaders. I was truly inspired to see how these young minds approached real-world problems with empathy, creativity, and purpose. Programs like YCB are building the foundation for a new India - one driven by curiosity, courage, and changemaking spirit.",
   },
@@ -238,6 +252,7 @@ const testimonials = [
     id: 2,
     name: "Ariqa Rizwan",
     role: "Participant, Summer 2023 Edition",
+    avatar: ariqaAvatar,
     quote:
       "Being part of the Young Changemakers Bootcamp was a defining moment in my journey. Interacting with mentors and innovators from diverse fields opened my mind to new ideas and perspectives. Above all, it reminded me that age is never a barrier to creating meaningful change.",
   },
@@ -245,6 +260,7 @@ const testimonials = [
     id: 3,
     name: "Yashveer Singh",
     role: "Global Director, Ashoka Young Changemakers",
+    avatar: yashveerAvatar,
     quote:
       "When I met the students at YCB, I saw a spark, the same one that drives every changemaker who starts young. Every participant I met carried a deep sense of purpose, and that’s the true success of this initiative. What Tale of Humankind is doing through YCB is remarkable: helping young people realize that they don’t need to wait to make a difference.",
   },
@@ -252,6 +268,7 @@ const testimonials = [
     id: 4,
     name: "Pravesh Biyani",
     role: "Professor, IIIT Delhi",
+    avatar: praveshAvatar,
     quote:
       "Hosting the YCB sessions was a delight. The students’ energy, curiosity, and willingness to engage with complex ideas were remarkable. It’s rare to see such integration of empathy and innovation in early education - YCB achieves that beautifully.",
   },
@@ -259,6 +276,7 @@ const testimonials = [
     id: 5,
     name: "Vishal Pal Singh",
     role: "IRS Officer, Parent of Participant",
+    avatar: vishalAvatar,
     quote:
       "Having spent years in public service, I’ve seen how crucial early leadership and empathy are. YCB helps young people build those values beautifully. My child came back more self-assured and socially aware — it was heartwarming to see such transformation at that age.",
   },
@@ -269,10 +287,12 @@ const TestimonialCard = ({
   quote,
   name,
   role,
+  avatar,
 }: {
   quote: string;
   name: string;
   role: string;
+  avatar?: string | StaticImageData;
 }) => {
   const initials = name
     .split(" ")
@@ -294,15 +314,19 @@ const TestimonialCard = ({
       {/* Card Background with gradient */}
       <div className="card-gradient-testimonial absolute inset-0 rounded-[12px] transition-all duration-300" />
 
-      {/* Avatar with initials */}
+      {/* Avatar (image if provided; otherwise initials) */}
       <div
-        aria-label={`Avatar initials for ${name}`}
-        className="hover-scale absolute top-4 left-4 flex size-[50px] items-center justify-center rounded-full border-[3px] border-[gold] bg-gradient-to-br from-[#f9fafb] to-[#e5e7eb] font-semibold text-[#1a365d] transition-all duration-300 sm:top-5 sm:left-5 sm:size-[60px] md:top-8 md:left-8 md:size-[74px]"
+        aria-label={avatar ? `${name}` : `Avatar initials for ${name}`}
+        className="hover-scale absolute top-4 left-4 flex size-[50px] items-center justify-center overflow-hidden rounded-full border-[3px] border-[gold] bg-gradient-to-br from-[#f9fafb] to-[#e5e7eb] font-semibold text-[#1a365d] transition-all duration-300 sm:top-5 sm:left-5 sm:size-[60px] md:top-8 md:left-8 md:size-[74px]"
         role="img"
       >
-        <span aria-hidden="true" className="text-sm sm:text-base md:text-lg">
-          {initials}
-        </span>
+        {avatar ? (
+          <Image alt={name} className="object-cover" fill src={avatar} />
+        ) : (
+          <span aria-hidden="true" className="text-sm sm:text-base md:text-lg">
+            {initials}
+          </span>
+        )}
       </div>
 
       {/* Name and Role Container */}
@@ -630,8 +654,8 @@ export default function Home() {
                   frameBorder="0"
                   onMouseEnter={() => setIsVideoPlaying(true)}
                   onMouseLeave={() => setIsVideoPlaying(false)}
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1"
-                  title="YCB Program Overview - Coming Soon"
+                  src="https://www.youtube.com/embed/cvCbVCOm8Ow?enablejsapi=1"
+                  title="YCB Program Overview"
                 />
 
                 {/* Darker overlay for video thumbnail - behind iframe with pointer-events-none */}
@@ -1266,6 +1290,7 @@ function TestimonialsMarquee({ className = "" }: { className?: string }) {
           name={testimonial.name}
           quote={testimonial.quote}
           role={testimonial.role}
+          avatar={(testimonial as any).avatar}
         />
       ))}
     </Marquee>

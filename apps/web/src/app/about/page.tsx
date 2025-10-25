@@ -26,47 +26,107 @@ import {
   Target,
   Users,
 } from "lucide-react";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
 import creativityIcon from "./icons/creativity.png";
 import exploringInnovationIcon from "./icons/exploring_innovation.png";
 import kickoffIcon from "./icons/kickoff.png";
 import ventureIcon from "./icons/venture.png";
+import ajaiChowdharyImg from "./inspiring_leaders/Ajai Chowdhary.jpg";
+import debjaniGhoshImg from "./inspiring_leaders/Debjani Ghosh.jpg";
+import diaMirzaImg from "./inspiring_leaders/Dia Mirza.jpg";
+import ramgopalRaoImg from "./inspiring_leaders/Prof. Ramgopal Rao.webp";
+// Snapshots images
+import img2240 from "./snapshots_past/IMG_2240.jpg";
+import img2242 from "./snapshots_past/IMG_2242.jpg";
+import img2243 from "./snapshots_past/IMG_2243.jpg";
+import img2244 from "./snapshots_past/IMG_2244.jpg";
+import img2245 from "./snapshots_past/IMG_2245.jpg";
+import img2247 from "./snapshots_past/IMG_2247.jpg";
+import img2251 from "./snapshots_past/IMG_2251.jpg";
+import img2253 from "./snapshots_past/IMG_2253.jpg";
+import img2254 from "./snapshots_past/IMG_2254.jpg";
+import img2259 from "./snapshots_past/IMG_2259.jpg";
+import img2261 from "./snapshots_past/IMG_2261.jpg";
+import img2263 from "./snapshots_past/IMG_2263.jpg";
 
 // Snapshots Slider Component
 const SnapshotsSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeCaptionIndex, setActiveCaptionIndex] = useState<number | null>(
+    null
+  );
 
-  const slides = [
+  // Auto-slide timer
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  type Slide = { title: string; description: string; image: StaticImageData };
+  const slides: Slide[] = [
     {
       title: "Workshop Session",
-      gradient: "from-blue-100 to-purple-100",
+      image: img2240,
       description: "Interactive learning sessions with hands-on activities",
     },
     {
       title: "Team Collaboration",
-      gradient: "from-green-100 to-blue-100",
+      image: img2242,
       description: "Students working together on innovative solutions",
     },
     {
       title: "Prototype Building",
-      gradient: "from-purple-100 to-pink-100",
+      image: img2243,
       description: "Creating tangible solutions to real-world problems",
     },
     {
       title: "Final Presentations",
-      gradient: "from-orange-100 to-red-100",
+      image: img2244,
       description: "Showcasing innovative ideas to mentors and judges",
     },
     {
       title: "Mentorship Sessions",
-      gradient: "from-teal-100 to-cyan-100",
+      image: img2245,
       description: "One-on-one guidance from industry experts",
     },
     {
       title: "Innovation Labs",
-      gradient: "from-yellow-100 to-orange-100",
+      image: img2247,
       description: "Exploring cutting-edge technologies and tools",
+    },
+    {
+      title: "Hands-on Practice",
+      image: img2251,
+      description: "Applying concepts through practical activities",
+    },
+    {
+      title: "Outdoor Learning",
+      image: img2253,
+      description: "Learning beyond the classroom walls",
+    },
+    {
+      title: "Teamwork at Work",
+      image: img2254,
+      description: "Collaborating to solve real problems",
+    },
+    {
+      title: "Focused Sessions",
+      image: img2259,
+      description: "Deep dives guided by mentors",
+    },
+    {
+      title: "Exploration & Discovery",
+      image: img2261,
+      description: "Curiosity-led exploration",
+    },
+    {
+      title: "Presentation & Sharing",
+      image: img2263,
+      description: "Sharing ideas and getting feedback",
     },
   ];
 
@@ -98,17 +158,56 @@ const SnapshotsSlider = () => {
             {slides.map((slide, index) => (
               <div className="w-full flex-shrink-0" key={index}>
                 <div
-                  className={`group relative overflow-hidden bg-gradient-to-br ${slide.gradient} aspect-[16/9] transition-all duration-300`}
+                  aria-label={`${slide.title} — ${slide.description}`}
+                  className={`group relative overflow-hidden aspect-[4/3] sm:aspect-[16/9] md:aspect-[2/1] transition-all duration-300`}
+                  onClick={() =>
+                    setActiveCaptionIndex((prev) =>
+                      prev === index ? null : index
+                    )
+                  }
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setActiveCaptionIndex((prev) =>
+                        prev === index ? null : index
+                      );
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                    <h4 className="mb-2 font-bold text-gray-800 text-xl md:text-2xl">
+                  <Image
+                    alt={slide.title}
+                    className={`object-cover ${
+                      slide.title === "Prototype Building" ? "object-[center_25%]" :
+                      slide.title === "Hands-on Practice" ? "object-[center_75%]" :
+                      slide.title === "Outdoor Learning" ? "object-[center_75%]" :
+                      "object-center"
+                    }`}
+                    fill
+                    src={slide.image}
+                  />
+                  <div
+                    className={`absolute inset-0 transition-colors duration-300 ${
+                      activeCaptionIndex === index
+                        ? "bg-black/50"
+                        : "bg-black/0 group-hover:bg-black/35"
+                    }`}
+                  />
+                  <div
+                    className={`absolute inset-0 z-10 flex flex-col items-center justify-center p-8 text-center transition-opacity duration-300 pointer-events-none ${
+                      activeCaptionIndex === index
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
+                    }`}
+                  >
+                    <h4 className="mb-2 font-bold text-white text-xl md:text-2xl [text-shadow:_3px_3px_6px_rgb(0_0_0_/_90%)]">
                       {slide.title}
                     </h4>
-                    <p className="max-w-md text-gray-600 text-sm md:text-base">
+                    <p className="max-w-md text-white text-sm md:text-base [text-shadow:_3px_3px_6px_rgb(0_0_0_/_90%)]">
                       {slide.description}
                     </p>
                   </div>
-                  <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/5" />
                 </div>
               </div>
             ))}
@@ -117,17 +216,19 @@ const SnapshotsSlider = () => {
 
         {/* Navigation Arrows */}
         <button
-          className="-translate-y-1/2 absolute top-1/2 left-4 rounded-full bg-white/80 p-2 text-gray-700 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-white"
+          className="-translate-y-1/2 absolute top-1/2 left-4 rounded-full bg-white/80 p-3 text-gray-700 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-white"
           onClick={prevSlide}
+          type="button"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-6 w-6" />
         </button>
 
         <button
-          className="-translate-y-1/2 absolute top-1/2 right-4 rounded-full bg-white/80 p-2 text-gray-700 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-white"
+          className="-translate-y-1/2 absolute top-1/2 right-4 rounded-full bg-white/80 p-3 text-gray-700 shadow-lg transition-all duration-300 hover:scale-110 hover:bg-white"
           onClick={nextSlide}
+          type="button"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-6 w-6" />
         </button>
 
         {/* Dots Indicator */}
@@ -153,7 +254,7 @@ const AboutPage = () => {
   const [activeSection, setActiveSection] = useState<string>("about");
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [selectedFaqCategory, setSelectedFaqCategory] =
-    useState<FaqCategory>("About YCB");
+    useState<FaqCategory>("Application & Admission");
   const [showFloatingNav, setShowFloatingNav] = useState(false);
   const [isFloatingNavOpen, setIsFloatingNavOpen] = useState(false);
 
@@ -228,8 +329,9 @@ const AboutPage = () => {
       day: "Day 0",
       title: "Kickoff & Orientation",
       description: [
-        "Welcome, icebreakers, campus walk",
-        "Informal interaction with mentors & peers",
+        "Orientation",
+        "Campus Walk",
+        "Informal Interaction with Students, Team & Mentors"
       ],
       icon: (
         <Image
@@ -246,9 +348,12 @@ const AboutPage = () => {
       day: "Day 1",
       title: "Spotting Problems That Matter",
       description: [
-        "Intro to science & tech, changemaking for a better world",
-        "Observation walks, drone demo",
-        "Icebreaker games",
+        "Introduction to Science, Technology & Engineering",
+        "Changemaking for a better world",
+        "Identifying Problems through Observation",
+        "Hands-on Robotics Workshop",
+        "Local Trip to Delhi",
+        "Icebreaker Games"
       ],
       icon: <Search className="h-5 w-5 md:h-6 md:w-6" />,
       color: "from-green-400 to-green-600",
@@ -257,10 +362,13 @@ const AboutPage = () => {
       day: "Day 2",
       title: "Exploring Innovation",
       description: [
-        "AI/ML & ChatGPT, cognitive psychology",
-        "Design & innovation lab visit, 3D printing demo",
-        "Entrepreneurship mindset, expressive art",
-        "Web 3.0, movie night",
+        "Introduction to AI/ML & Impacts on Society + Decoding ChatGPT",
+        "Learning how we learn & think: Introduction to Cognitive Psychology",
+        "Visit to Design & Innovation Lab + Demonstration of 3D Printer",
+        "How to think like an entrepreneur?",
+        "Expressive Art Therapy",
+        "Web 3.0 & Blockchain",
+        "Movie Screening"
       ],
       icon: (
         <Image
@@ -277,9 +385,11 @@ const AboutPage = () => {
       day: "Day 3",
       title: "Creativity & Design Thinking",
       description: [
-        "Team formation, ideation with mentors",
-        "Problem validation, design thinking",
-        "App/web basics, talent night",
+        "Team Formation + Ideation with changemaker mentor",
+        "Design Thinking + Problem Validation using DT Tools",
+        "Creativity, Innovation & Inventive Problem Solving",
+        "Introduction to Web & App Development",
+        "Talent Night"
       ],
       icon: (
         <Image
@@ -296,9 +406,12 @@ const AboutPage = () => {
       day: "Day 4",
       title: "From Ideas to Ventures",
       description: [
-        "Product innovation, unique value proposition",
-        "Financial basics, business plan prep",
-        "Pitching practice, storytelling & photography workshop",
+        "Product Innovation using DT Tools",
+        "Unique Value Proposition",
+        "Introduction to Financial Concepts for Business",
+        "How to Prepare a Business Plan?",
+        "Preparation for Innovative Pitching Competition",
+        "The Art of Storytelling & Photography"
       ],
       icon: (
         <Image
@@ -315,9 +428,12 @@ const AboutPage = () => {
       day: "Day 5",
       title: "The Big Pitch",
       description: [
-        "My Idea for Change Competition, career guidance",
-        "Interaction with faculty, mini farewell",
-        "Sports, music & cultural night",
+        "Business Pitching Competition",
+        "Open-House Session for Career Guidance",
+        "Valedictory Ceremony",
+        "Mini-Farewell",
+        "Desi Adda Sports Event",
+        "Musical Night"
       ],
       icon: <Mic className="h-5 w-5 md:h-6 md:w-6" />,
       color: "from-indigo-400 to-indigo-600",
@@ -326,8 +442,7 @@ const AboutPage = () => {
       day: "Day 6",
       title: "Closing & Departure",
       description: [
-        "Reflections, goodbyes",
-        "Departure with new ideas and lifelong friendships",
+        "Departure from IIT Delhi campus"
       ],
       icon: <GraduationCap className="h-5 w-5 md:h-6 md:w-6" />,
       color: "from-pink-400 to-pink-600",
@@ -397,7 +512,6 @@ const AboutPage = () => {
   ];
 
   const faqCategories = [
-    "About YCB",
     "Application & Admission",
     "For Parents",
     "Travel & Logistics",
@@ -410,35 +524,12 @@ const AboutPage = () => {
     FaqCategory,
     Array<{ question: string; answer: string }>
   > = {
-    "About YCB": [
-      {
-        question: "What is the Young Changemakers Bootcamp (YCB)?",
-        answer:
-          "The Young Changemakers Bootcamp (YCB) is a one-week residential program for high school students that focuses on problem-solving, innovation, leadership, and entrepreneurial skills through hands-on, real-world learning.",
-      },
+    "Application & Admission": [
       {
         question: "Who can apply for YCB?",
         answer:
           "High school students in classes 9–12 (or equivalent), including those who have just completed Class 12 board exams.",
       },
-      {
-        question:
-          "Is YCB a partnered program or connected to the host institution?",
-        answer:
-          "No, YCB is an independent program entirely by the Tale of Humankind team. The host institute only provides the venue and is not responsible for design, curriculum, or delivery.",
-      },
-      {
-        question: "How many students are selected each season?",
-        answer:
-          "Around 40-50 students are selected each season. Seats are limited to ensure high-quality learning and personal attention.",
-      },
-      {
-        question: "What makes YCB unique compared to other student bootcamps?",
-        answer:
-          "YCB emphasizes changemaking, real-world challenges, interdisciplinary learning, and personal leadership growth, beyond just academics.",
-      },
-    ],
-    "Application & Admission": [
       {
         question: "How do I apply?",
         answer:
@@ -473,6 +564,11 @@ const AboutPage = () => {
         question: "Can international students apply?",
         answer:
           "Currently, YCB is open only to students across India. Any Indian student living abroad for studies is welcome to participate in YCB.",
+      },
+      {
+        question: "How many students are selected each season?",
+        answer:
+          "Around 40-50 students are selected each season pan India. Seats are limited to ensure high-quality learning and personal attention.",
       },
     ],
     "For Parents": [
@@ -520,6 +616,12 @@ const AboutPage = () => {
     ],
     "Program Experience": [
       {
+        question:
+          "Is YCB a partnered program or connected to the host institution?",
+        answer:
+          "No, YCB is a flagship program of the Tale of Humankind foundation. The host institute is not responsible for design, curriculum, or delivery.",
+      },
+      {
         question: "How intensive is the daily schedule?",
         answer:
           "The program is structured yet balanced, combining workshops, group projects, mentor sessions, and fun activities.",
@@ -539,60 +641,52 @@ const AboutPage = () => {
 
   const alumniReviews = [
     {
-      name: "Priya Sharma",
-      batch: "YCB 2024",
-      role: "Founder, EcoSolutions India",
+      name: "Ananya Srivastava",
+      batch: "Season-5",
+      role: "Maharashtra",
       review:
-        "YCB transformed my understanding of climate action. The mentorship and real projects gave me the confidence to start my own environmental consultancy.",
-      image: "PS",
+        "YCB made me realize that changemaking isn't about age, resources, or background, it's all about mindset and the courage to begin. Every speaker, mentor, and even my fellow participants inspired me in their own unique way, pushing me to think deeper and dream bigger.",
+      image: "AS",
     },
     {
-      name: "Arjun Patel",
-      batch: "YCB 2023",
-      role: "Climate Policy Analyst",
+      name: "Vanshika Jain",
+      batch: "Season-4",
+      role: "Karnataka",
       review:
-        "The network I built through YCB has been invaluable. I'm now working with the government on climate policy, thanks to connections made during the program.",
-      image: "AP",
+        "YCB showed me what learning outside classrooms truly feels like. The exposure visits, team activities, and dialogues pushed me out of my comfort zone. I learned to collaborate, to listen deeply, and to think differently, lessons that no textbook could have given.",
+      image: "VJ",
     },
     {
-      name: "Maya Singh",
-      batch: "YCB 2024",
-      role: "Social Entrepreneur",
+      name: "Allu Sairuchi Reddy",
+      batch: "Season-4",
+      role: "Telangana",
       review:
-        "YCB didn't just teach me about climate change - it gave me the tools and network to actually make a difference. My startup now impacts 10,000+ farmers.",
-      image: "MS",
+        "The best part about YCB was how real it felt. The mentors didn't talk about change theoretically; they showed us what it looks like in action. I learned how passion can turn into purpose, and purpose into something that truly helps people.",
+      image: "AR",
     },
     {
-      name: "Rahul Kumar",
-      batch: "YCB 2023",
-      role: "Sustainability Consultant",
+      name: "Siddhi Jairath",
+      batch: "Season-2",
+      role: "Delhi",
       review:
-        "The hands-on projects and real-world experience I gained through YCB were game-changing. I now lead sustainability initiatives for Fortune 500 companies.",
-      image: "RK",
+        "YCB felt like stepping into a world where imagination met purpose. From learning about AI to sharing ideas with like-minded changemakers, every moment was filled with inspiration. It's where I stopped doubting myself and started believing that I could actually build something meaningful.",
+      image: "SJ",
     },
     {
-      name: "Ananya Joshi",
-      batch: "YCB 2024",
-      role: "Green Tech Innovator",
+      name: "Dev Shah",
+      batch: "Season-3",
+      role: "Gujarat",
       review:
-        "YCB's emphasis on innovation and technology helped me develop a clean energy solution that's now being implemented across rural communities.",
-      image: "AJ",
+        "YCB taught me that changemaking isn't a one-time act, it's a mindset you live with. The sessions helped me connect my interests with impact, while the friendships I made became my support system for every challenge I've faced since then.",
+      image: "DS",
     },
     {
-      name: "Vikram Mehta",
-      batch: "YCB 2023",
-      role: "Impact Investment Analyst",
+      name: "Rhythm Goel",
+      batch: "Season-1",
+      role: "Delhi",
       review:
-        "The program opened my eyes to the intersection of finance and social impact. I now help direct millions in funding toward sustainable development projects.",
-      image: "VM",
-    },
-    {
-      name: "Kavya Reddy",
-      batch: "YCB 2024",
-      role: "Community Development Lead",
-      review:
-        "YCB taught me that change starts at the grassroots level. I'm now leading community-driven initiatives that have transformed 50+ villages.",
-      image: "KR",
+        "Young Changemakers Bootcamp was truly a life-changing experience. From learning to express ideas to building confidence, it shaped my mindset and helped me discover a newer, more confident version of myself. The workshops completely changed how I see the world and my role in it.",
+      image: "RG",
     },
   ];
 
@@ -836,7 +930,7 @@ const AboutPage = () => {
                             Applications Open
                           </div>
                           <div className="text-gray-600 text-sm">
-                            April 22, 2025
+                            October 25, 2025
                           </div>
                         </div>
                       </div>
@@ -849,7 +943,7 @@ const AboutPage = () => {
                             Application Deadline
                           </div>
                           <div className="text-gray-600 text-sm">
-                            May 23, 2025
+                            November 23, 2025
                           </div>
                         </div>
                       </div>
@@ -862,7 +956,7 @@ const AboutPage = () => {
                             Round 1 Results Announced
                           </div>
                           <div className="text-gray-600 text-sm">
-                            June 1, 2025
+                            November 28, 2025
                           </div>
                         </div>
                       </div>
@@ -875,7 +969,7 @@ const AboutPage = () => {
                             Group Discussion Slots
                           </div>
                           <div className="text-gray-600 text-sm">
-                            May 22 – June 3, 2025
+                            Nov 30 – Dec 5, 2025
                           </div>
                         </div>
                       </div>
@@ -888,7 +982,7 @@ const AboutPage = () => {
                             Final Shortlist
                           </div>
                           <div className="text-gray-600 text-sm">
-                            June 5, 2025
+                            December 8, 2025
                           </div>
                         </div>
                       </div>
@@ -901,7 +995,7 @@ const AboutPage = () => {
                             Bootcamp Dates
                           </div>
                           <div className="text-gray-600 text-sm">
-                            June 17–23, 2025
+                            December 17–23, 2025
                           </div>
                         </div>
                       </div>
@@ -984,9 +1078,13 @@ const AboutPage = () => {
                       </p>
                       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
-                          <div className="flex aspect-square h-12 min-h-12 w-12 min-w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 font-bold text-blue-600 text-lg">
-                            A
-                          </div>
+                          <Image
+                            alt="Ajai Chowdhry"
+                            className="h-12 w-12 min-h-12 min-w-12 shrink-0 rounded-full object-cover"
+                            height={48}
+                            src={ajaiChowdharyImg}
+                            width={48}
+                          />
                           <div>
                             <div className="font-semibold text-[#050a30]">
                               Ajai Chowdhry
@@ -998,9 +1096,13 @@ const AboutPage = () => {
                         </div>
 
                         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
-                          <div className="flex aspect-square h-12 min-h-12 w-12 min-w-12 shrink-0 items-center justify-center rounded-full bg-green-100 font-bold text-green-600 text-lg">
-                            D
-                          </div>
+                          <Image
+                            alt="Debjani Ghosh"
+                            className="h-12 w-12 min-h-12 min-w-12 shrink-0 rounded-full object-cover"
+                            height={48}
+                            src={debjaniGhoshImg}
+                            width={48}
+                          />
                           <div>
                             <div className="font-semibold text-[#050a30]">
                               Debjani Ghosh
@@ -1012,9 +1114,13 @@ const AboutPage = () => {
                         </div>
 
                         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
-                          <div className="flex aspect-square h-12 min-h-12 w-12 min-w-12 shrink-0 items-center justify-center rounded-full bg-purple-100 font-bold text-lg text-purple-600">
-                            D
-                          </div>
+                          <Image
+                            alt="Dia Mirza"
+                            className="h-12 w-12 min-h-12 min-w-12 shrink-0 rounded-full object-cover"
+                            height={48}
+                            src={diaMirzaImg}
+                            width={48}
+                          />
                           <div>
                             <div className="font-semibold text-[#050a30]">
                               Dia Mirza
@@ -1026,9 +1132,13 @@ const AboutPage = () => {
                         </div>
 
                         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
-                          <div className="flex aspect-square h-12 min-h-12 w-12 min-w-12 shrink-0 items-center justify-center rounded-full bg-orange-100 font-bold text-lg text-orange-600">
-                            R
-                          </div>
+                          <Image
+                            alt="Prof. Ramgopal Rao"
+                            className="h-12 w-12 min-h-12 min-w-12 shrink-0 rounded-full object-cover"
+                            height={48}
+                            src={ramgopalRaoImg}
+                            width={48}
+                          />
                           <div>
                             <div className="font-semibold text-[#050a30]">
                               Prof. Ramgopal Rao
@@ -1131,7 +1241,7 @@ const AboutPage = () => {
                       <div className="space-y-4">
                         <div className="rounded-lg bg-blue-50 p-4">
                           <div className="font-bold text-2xl text-[#050a30]">
-                            ₹15,500
+                            ₹17,500
                           </div>
                           <div className="text-gray-600 text-sm">
                             Program Fee (includes meals during the program)
@@ -1145,6 +1255,7 @@ const AboutPage = () => {
                         </div>
 
                         <div className="rounded-lg bg-green-50 p-4">
+                          <span className="mb-1 inline-flex items-center rounded-full bg-green-200 px-2 py-0.5 text-xs font-semibold uppercase text-green-800">Optional</span>
                           <div className="font-bold text-[#050a30] text-xl">
                             ₹12,000
                           </div>
@@ -1155,11 +1266,14 @@ const AboutPage = () => {
                         </div>
 
                         <div className="border-t pt-4">
-                          <div className="text-sm">
-                            <span className="text-gray-600">
-                              <strong>Application Fee:</strong> ₹500
-                              (non-refundable)
+                          <div className="rounded-md border border-amber-200 bg-amber-50 p-3">
+                            <span className="text-base font-semibold text-amber-900">
+                              Application Fee: ₹500
+                              <span className="font-normal"> (non-refundable)</span>
                             </span>
+                          </div>
+                          <div className="mt-3 text-sm text-gray-800">
+                            <strong>Deadline to apply:</strong> November 15, 2025
                           </div>
                         </div>
                       </div>
