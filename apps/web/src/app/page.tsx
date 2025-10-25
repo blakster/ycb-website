@@ -12,8 +12,8 @@ import {
   Users,
   Wrench,
 } from "lucide-react";
-import Image from "next/image";
 import type { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import {
   type ElementType,
@@ -38,9 +38,9 @@ import img_2264 from "./hero_images/IMG_2264.jpg";
 import img_7940 from "./hero_images/IMG_7940.jpg";
 import ajaiAvatar from "./testi/Ajai.avif";
 import ariqaAvatar from "./testi/Ariqa.jpeg";
-import yashveerAvatar from "./testi/Yashveer.jpg";
 import praveshAvatar from "./testi/Pravesh.jpg";
 import vishalAvatar from "./testi/Vishal.jpg";
+import yashveerAvatar from "./testi/Yashveer.jpg";
 
 // Notification Banner Component
 const NotificationBanner = () => {
@@ -116,13 +116,18 @@ const NotificationBanner = () => {
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-            Applications for the 6th edition of YCB are live until November 22, 2025.
+            Applications for the 6th edition of YCB are live until November 22,
+            2025.
           </p>
           <div className="flex items-center gap-2">
             <button
               className="btn-gold-gradient smooth-hover hover:-translate-y-0.5 rounded-md px-3 py-1.5 font-semibold text-[#050a30] text-xs shadow-sm transition-all duration-200 sm:text-sm"
               onClick={() => {
-                window.open("https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk", "_blank", "noopener,noreferrer");
+                window.open(
+                  "https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
                 handleClose();
               }}
               type="button"
@@ -1286,11 +1291,11 @@ function TestimonialsMarquee({ className = "" }: { className?: string }) {
     >
       {testimonials.map((testimonial) => (
         <TestimonialCard
+          avatar={(testimonial as any).avatar}
           key={testimonial.id}
           name={testimonial.name}
           quote={testimonial.quote}
           role={testimonial.role}
-          avatar={(testimonial as any).avatar}
         />
       ))}
     </Marquee>

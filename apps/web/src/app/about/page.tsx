@@ -159,7 +159,9 @@ const SnapshotsSlider = () => {
               <div className="w-full flex-shrink-0" key={index}>
                 <div
                   aria-label={`${slide.title} — ${slide.description}`}
-                  className={`group relative overflow-hidden aspect-[4/3] sm:aspect-[16/9] md:aspect-[2/1] transition-all duration-300`}
+                  className={
+                    "group relative aspect-[4/3] overflow-hidden transition-all duration-300 sm:aspect-[16/9] md:aspect-[2/1]"
+                  }
                   onClick={() =>
                     setActiveCaptionIndex((prev) =>
                       prev === index ? null : index
@@ -198,16 +200,16 @@ const SnapshotsSlider = () => {
                     }`}
                   />
                   <div
-                    className={`absolute inset-0 z-10 flex flex-col items-center justify-center p-8 text-center transition-opacity duration-300 pointer-events-none ${
+                    className={`pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center p-8 text-center transition-opacity duration-300 ${
                       activeCaptionIndex === index
                         ? "opacity-100"
                         : "opacity-0 group-hover:opacity-100"
                     }`}
                   >
-                    <h4 className="mb-2 font-bold text-white text-xl md:text-2xl [text-shadow:_3px_3px_6px_rgb(0_0_0_/_90%)]">
+                    <h4 className="mb-2 font-bold text-white text-xl [text-shadow:_3px_3px_6px_rgb(0_0_0_/_90%)] md:text-2xl">
                       {slide.title}
                     </h4>
-                    <p className="max-w-md text-white text-sm md:text-base [text-shadow:_3px_3px_6px_rgb(0_0_0_/_90%)]">
+                    <p className="max-w-md text-sm text-white [text-shadow:_3px_3px_6px_rgb(0_0_0_/_90%)] md:text-base">
                       {slide.description}
                     </p>
                   </div>
@@ -1082,7 +1084,7 @@ const AboutPage = () => {
                         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
                           <Image
                             alt="Ajai Chowdhry"
-                            className="h-12 w-12 min-h-12 min-w-12 shrink-0 rounded-full object-cover"
+                            className="h-12 min-h-12 w-12 min-w-12 shrink-0 rounded-full object-cover"
                             height={48}
                             src={ajaiChowdharyImg}
                             width={48}
@@ -1100,7 +1102,7 @@ const AboutPage = () => {
                         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
                           <Image
                             alt="Debjani Ghosh"
-                            className="h-12 w-12 min-h-12 min-w-12 shrink-0 rounded-full object-cover"
+                            className="h-12 min-h-12 w-12 min-w-12 shrink-0 rounded-full object-cover"
                             height={48}
                             src={debjaniGhoshImg}
                             width={48}
@@ -1118,7 +1120,7 @@ const AboutPage = () => {
                         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
                           <Image
                             alt="Dia Mirza"
-                            className="h-12 w-12 min-h-12 min-w-12 shrink-0 rounded-full object-cover"
+                            className="h-12 min-h-12 w-12 min-w-12 shrink-0 rounded-full object-cover"
                             height={48}
                             src={diaMirzaImg}
                             width={48}
@@ -1136,7 +1138,7 @@ const AboutPage = () => {
                         <div className="flex items-center gap-3 rounded-lg border border-gray-100 bg-white p-4 transition-all duration-300 hover:shadow-md">
                           <Image
                             alt="Prof. Ramgopal Rao"
-                            className="h-12 w-12 min-h-12 min-w-12 shrink-0 rounded-full object-cover"
+                            className="h-12 min-h-12 w-12 min-w-12 shrink-0 rounded-full object-cover"
                             height={48}
                             src={ramgopalRaoImg}
                             width={48}
@@ -1257,7 +1259,7 @@ const AboutPage = () => {
                         </div>
 
                         <div className="rounded-lg bg-green-50 p-4">
-                          <span className="mb-1 inline-flex items-center rounded-full bg-green-200 px-2 py-0.5 text-xs font-semibold uppercase text-green-800">
+                          <span className="mb-1 inline-flex items-center rounded-full bg-green-200 px-2 py-0.5 font-semibold text-green-800 text-xs uppercase">
                             Optional
                           </span>
                           <div className="font-bold text-[#050a30] text-xl">
@@ -1271,7 +1273,7 @@ const AboutPage = () => {
 
                         <div className="border-t pt-4">
                           <div className="rounded-md border border-amber-200 bg-amber-50 p-3">
-                            <span className="text-base font-semibold text-amber-900">
+                            <span className="font-semibold text-amber-900 text-base">
                               Application Fee: ₹500
                               <span className="font-normal">
                                 {" "}
@@ -1279,7 +1281,7 @@ const AboutPage = () => {
                               </span>
                             </span>
                           </div>
-                          <div className="mt-3 text-sm text-gray-800">
+                          <div className="mt-3 text-gray-800 text-sm">
                             <strong>Deadline to apply:</strong> November 15,
                             2025
                           </div>

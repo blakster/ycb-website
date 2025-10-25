@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Newsletter from "./newsletter";
 import tohkLogo from "@/assets/tohk.jpg";
+import Newsletter from "./newsletter";
 
 export default function Footer() {
   return (
@@ -76,8 +76,8 @@ export default function Footer() {
                   <a
                     className="transition-colors hover:text-[gold]"
                     href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
-                    target="_blank"
                     rel="noopener noreferrer"
+                    target="_blank"
                   >
                     Apply
                   </a>
@@ -161,8 +161,6 @@ export default function Footer() {
                     Instagram
                   </a>
                 </li>
-
-
               </ul>
             </div>
           </div>
