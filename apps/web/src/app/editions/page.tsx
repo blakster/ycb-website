@@ -85,7 +85,7 @@ import s5_gallery_15 from "./s5_gallery/IMG_2254 Large.jpeg";
 import s5_gallery_16 from "./s5_gallery/IMG_2255 Large.jpeg";
 
 const editionsData = {
-  "Season 1": {
+  "YCB Season 1": {
     year: "2023",
     season: "June 2023",
     name: "YCB 2023 - Summer Edition",
@@ -253,7 +253,7 @@ const editionsData = {
     // },
   },
 
-  "Season 2": {
+  "YCB Season 2": {
     year: "2023",
     season: "December 2023",
     name: "YCB 2023 - Winter Edition",
@@ -410,7 +410,7 @@ const editionsData = {
     // },
   },
 
-  "Season 3": {
+  "YCB Season 3": {
     year: "2024",
     season: "June 2024",
     name: "YCB 2024 - Summer Edition",
@@ -577,7 +577,7 @@ const editionsData = {
     // },
   },
 
-  "Season 4": {
+  "YCB Season 4": {
     year: "2024",
     season: "December 2024",
     name: "YCB 2024 - Winter Edition",
@@ -742,7 +742,7 @@ const editionsData = {
     // },
   },
 
-  "Season 5": {
+  "YCB Season 5": {
     year: "2025",
     season: "June 2025",
     name: "YCB 2025 - Summer Edition",
@@ -931,7 +931,7 @@ const editionsData = {
 };
 
 const EditionsPage = () => {
-  const [selectedEdition, setSelectedEdition] = useState("Season 5");
+  const [selectedEdition, setSelectedEdition] = useState("YCB Season 5");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const editions = Object.keys(editionsData);
