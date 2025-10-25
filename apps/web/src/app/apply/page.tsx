@@ -150,8 +150,16 @@ export default function ApplyPage() {
                             ? "https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
                             : "#"
                         }
-                        target={program.status !== "Coming Soon" ? "_blank" : undefined}
-                        rel={program.status !== "Coming Soon" ? "noopener noreferrer" : undefined}
+                        rel={
+                          program.status !== "Coming Soon"
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        target={
+                          program.status !== "Coming Soon"
+                            ? "_blank"
+                            : undefined
+                        }
                       >
                         {program.status === "Coming Soon"
                           ? "Coming Soon"
@@ -184,11 +192,11 @@ export default function ApplyPage() {
                 asChild
                 className="smooth-hover bg-[gold] px-6 py-3 font-bold text-[#1a365d] transition-all duration-300 hover:scale-105 hover:bg-[gold]/90"
               >
-                <Link 
-                  className="flex items-center gap-2" 
+                <Link
+                  className="flex items-center gap-2"
                   href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
-                  target="_blank"
                   rel="noopener noreferrer"
+                  target="_blank"
                 >
                   Apply Now
                   <ArrowRight className="h-4 w-4" />

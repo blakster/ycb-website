@@ -12,8 +12,8 @@ import {
   Users,
   Wrench,
 } from "lucide-react";
-import Image from "next/image";
 import type { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import {
   type ElementType,
@@ -38,9 +38,9 @@ import img_2264 from "./hero_images/IMG_2264.jpg";
 import img_7940 from "./hero_images/IMG_7940.jpg";
 import ajaiAvatar from "./testi/Ajai.avif";
 import ariqaAvatar from "./testi/Ariqa.jpeg";
-import yashveerAvatar from "./testi/Yashveer.jpg";
 import praveshAvatar from "./testi/Pravesh.jpg";
 import vishalAvatar from "./testi/Vishal.jpg";
+import yashveerAvatar from "./testi/Yashveer.jpg";
 
 // Notification Banner Component
 const NotificationBanner = () => {
@@ -122,7 +122,11 @@ const NotificationBanner = () => {
             <button
               className="btn-gold-hover group inline-flex h-10 w-fit items-center justify-center gap-2 rounded-[10px] border-2 border-[gold] bg-[gold] px-4 py-2 font-bold text-[#050a30] text-sm leading-none transition-all duration-300 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-md"
               onClick={() => {
-                window.open("https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk", "_blank", "noopener,noreferrer");
+                window.open(
+                  "https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk",
+                  "_blank",
+                  "noopener,noreferrer"
+                );
                 handleClose();
               }}
               type="button"
@@ -1292,11 +1296,11 @@ function TestimonialsMarquee({ className = "" }: { className?: string }) {
     >
       {testimonials.map((testimonial) => (
         <TestimonialCard
+          avatar={(testimonial as any).avatar}
           key={testimonial.id}
           name={testimonial.name}
           quote={testimonial.quote}
           role={testimonial.role}
-          avatar={(testimonial as any).avatar}
         />
       ))}
     </Marquee>

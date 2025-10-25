@@ -85,7 +85,7 @@ import s5_gallery_15 from "./s5_gallery/IMG_2254 Large.jpeg";
 import s5_gallery_16 from "./s5_gallery/IMG_2255 Large.jpeg";
 
 const editionsData = {
-  "Season 1": {
+  "YCB Season 1": {
     year: "2023",
     season: "June 2023",
     name: "YCB 2023 - Summer Edition",
@@ -253,7 +253,7 @@ const editionsData = {
     // },
   },
 
-  "Season 2": {
+  "YCB Season 2": {
     year: "2023",
     season: "December 2023",
     name: "YCB 2023 - Winter Edition",
@@ -410,7 +410,7 @@ const editionsData = {
     // },
   },
 
-  "Season 3": {
+  "YCB Season 3": {
     year: "2024",
     season: "June 2024",
     name: "YCB 2024 - Summer Edition",
@@ -577,7 +577,7 @@ const editionsData = {
     // },
   },
 
-  "Season 4": {
+  "YCB Season 4": {
     year: "2024",
     season: "December 2024",
     name: "YCB 2024 - Winter Edition",
@@ -742,7 +742,7 @@ const editionsData = {
     // },
   },
 
-  "Season 5": {
+  "YCB Season 5": {
     year: "2025",
     season: "June 2025",
     name: "YCB 2025 - Summer Edition",
@@ -798,7 +798,7 @@ const editionsData = {
 
     narrativeContent: {
       intro:
-        "YCB June 2025 marked a defining milestone, celebrating five transformative cycles of learning, innovation, and community. This edition brought together 70 changemakers from across India to reimagine the future and turn ideas into meaningful impact.",
+        "YCB June 2025 marked a defining milestone, celebrating five transformative cycles of learning, innovation, and community. This edition brought together 50 changemakers from across India to reimagine the future and turn ideas into meaningful impact.",
       visionaryLeadership:
         "The fifth edition featured a stellar lineup of visionaries whose sessions challenged and inspired in equal measure. From Dr. Rishi Mohan Bhatnagar's powerful inaugural address and Ajai Chowdhary's insights into entrepreneurship to Prof. Aheli Choudhary, Prof. Pragma Kaur, and Sagarika Deka's sessions on innovation, leadership, and sustainability, every moment expanded students' worldviews. Prof. Ganesh Bagler brought his unique perspective on computational thinking, while Yashveer Singh returned to share how the YCB alumni network is creating real-world change. The finale was graced by Meenakshi Lekhi and Ojasvi Gupta, whose presence added gravitas and inspiration to the 'My Idea for Change' competition, reminding everyone that changemaking is a collective responsibility.",
       handsOnLearning:
@@ -931,7 +931,7 @@ const editionsData = {
 };
 
 const EditionsPage = () => {
-  const [selectedEdition, setSelectedEdition] = useState("Season 5");
+  const [selectedEdition, setSelectedEdition] = useState("YCB Season 5");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const editions = Object.keys(editionsData);
@@ -986,30 +986,30 @@ const EditionsPage = () => {
                   aria-expanded={isDropdownOpen}
                   aria-haspopup="listbox"
                   aria-label="Select edition"
-                  className="flex items-center gap-2 rounded-lg bg-white/90 px-3 py-1.5 font-medium text-[#050a30] text-xs shadow-lg backdrop-blur-sm transition-all duration-200 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/20 sm:gap-3 sm:rounded-xl sm:px-6 sm:py-3 sm:text-base"
+                  className="flex items-center gap-3 rounded-xl bg-white/90 px-6 py-3.5 font-semibold text-[#050a30] text-base shadow-xl backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/20 sm:gap-4 sm:px-8 sm:py-4 sm:text-lg"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   type="button"
                 >
-                  <Calendar className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
-                  <span className="text-xs sm:text-base">
+                  <Calendar className="h-5 w-5 sm:h-6 sm:w-6" />
+                  <span className="text-base sm:text-lg">
                     {selectedEdition}
                   </span>
                   <ChevronDown
-                    className={`h-3.5 w-3.5 transition-transform duration-200 sm:h-5 sm:w-5 ${isDropdownOpen ? "rotate-180" : ""}`}
+                    className={`h-5 w-5 transition-transform duration-200 sm:h-6 sm:w-6 ${isDropdownOpen ? "rotate-180" : ""}`}
                   />
                 </button>
 
                 {isDropdownOpen && (
                   <div
                     aria-label="Edition options"
-                    className="absolute top-full right-0 z-50 mt-2 w-full min-w-[160px] rounded-lg border border-gray-200 bg-white shadow-lg sm:min-w-[200px] sm:rounded-xl"
+                    className="absolute top-full right-0 z-50 mt-2 w-full min-w-[220px] rounded-xl border border-gray-200 bg-white shadow-xl sm:min-w-[280px]"
                     role="listbox"
                   >
-                    <div className="py-1 sm:py-2">
+                    <div className="py-2">
                       {editions.map((edition) => (
                         <button
                           aria-selected={selectedEdition === edition}
-                          className={`flex w-full items-center gap-2 px-3 py-2 text-left font-medium text-xs transition-all duration-200 sm:gap-3 sm:px-4 sm:py-3 sm:text-sm ${
+                          className={`flex w-full items-center gap-3 px-5 py-3.5 text-left font-semibold text-sm transition-all duration-200 sm:gap-4 sm:px-6 sm:py-4 sm:text-base ${
                             selectedEdition === edition
                               ? "bg-[#050a30] text-white"
                               : "text-gray-600 hover:bg-gray-100 hover:text-gray-800"
@@ -1022,7 +1022,7 @@ const EditionsPage = () => {
                           role="option"
                           type="button"
                         >
-                          <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
+                          <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
                           {edition}
                         </button>
                       ))}
@@ -1113,28 +1113,28 @@ const EditionsPage = () => {
                 aria-expanded={isDropdownOpen}
                 aria-haspopup="listbox"
                 aria-label="Select edition"
-                className="flex items-center gap-2 rounded-lg bg-[#050a30] px-3 py-1.5 font-medium text-white text-xs shadow-lg transition-all duration-200 hover:bg-[#050a30]/90 focus:outline-none focus:ring-2 focus:ring-[#050a30]/20 sm:gap-3 sm:rounded-xl sm:px-6 sm:py-3 sm:text-base"
+                className="flex items-center gap-3 rounded-xl bg-[#050a30] px-6 py-3.5 font-semibold text-base text-white shadow-xl transition-all duration-200 hover:scale-105 hover:bg-[#050a30]/90 focus:outline-none focus:ring-2 focus:ring-[#050a30]/20 sm:gap-4 sm:px-8 sm:py-4 sm:text-lg"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 type="button"
               >
-                <Calendar className="h-3.5 w-3.5 text-white sm:h-5 sm:w-5" />
-                <span className="text-xs sm:text-base">{selectedEdition}</span>
+                <Calendar className="h-5 w-5 text-white sm:h-6 sm:w-6" />
+                <span className="text-base sm:text-lg">{selectedEdition}</span>
                 <ChevronDown
-                  className={`h-3.5 w-3.5 text-white transition-transform duration-200 sm:h-5 sm:w-5 ${isDropdownOpen ? "rotate-180" : ""}`}
+                  className={`h-5 w-5 text-white transition-transform duration-200 sm:h-6 sm:w-6 ${isDropdownOpen ? "rotate-180" : ""}`}
                 />
               </button>
 
               {isDropdownOpen && (
                 <div
                   aria-label="Edition options"
-                  className="absolute top-full right-0 z-50 mt-2 w-full min-w-[160px] rounded-lg border border-gray-200 bg-white shadow-lg sm:min-w-[200px] sm:rounded-xl"
+                  className="absolute top-full right-0 z-50 mt-2 w-full min-w-[220px] rounded-xl border border-gray-200 bg-white shadow-xl sm:min-w-[280px]"
                   role="listbox"
                 >
-                  <div className="py-1 sm:py-2">
+                  <div className="py-2">
                     {editions.map((edition) => (
                       <button
                         aria-selected={selectedEdition === edition}
-                        className={`flex w-full items-center gap-2 px-3 py-2 text-left font-medium text-xs transition-all duration-200 sm:gap-3 sm:px-4 sm:py-3 sm:text-sm ${
+                        className={`flex w-full items-center gap-3 px-5 py-3.5 text-left font-semibold text-sm transition-all duration-200 sm:gap-4 sm:px-6 sm:py-4 sm:text-base ${
                           selectedEdition === edition
                             ? "bg-[#050a30] text-white"
                             : "text-gray-600 hover:bg-gray-100 hover:text-gray-800"
@@ -1147,7 +1147,7 @@ const EditionsPage = () => {
                         role="option"
                         type="button"
                       >
-                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
+                        <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
                         {edition}
                       </button>
                     ))}
@@ -1165,7 +1165,7 @@ const EditionsPage = () => {
                     {currentEdition.name}
                   </h1>
 
-                  <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text font-extrabold text-transparent">
+                  <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text font-medium text-transparent">
                     <p className="text-[#FFD700] text-xl lg:text-2xl">
                       {currentEdition.tagline}
                     </p>

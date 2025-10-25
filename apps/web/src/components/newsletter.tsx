@@ -60,8 +60,7 @@ export default function Newsletter() {
 
           {/* Description */}
           <p className="mx-auto max-w-2xl text-[#718096] text-lg leading-relaxed">
-            Stay updated on programs, deadlines, and changemaking
-            opportunities.
+            Stay updated on programs, deadlines, and changemaking opportunities.
           </p>
         </div>
 
@@ -149,11 +148,7 @@ export default function Newsletter() {
           {/* Success Message */}
           {isSubscribed && (
             <div className="mt-4 flex items-center justify-center gap-2 text-yellow-600">
-              <svg
-                className="h-5 w-5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
               </svg>
               <span className="font-medium text-sm">
