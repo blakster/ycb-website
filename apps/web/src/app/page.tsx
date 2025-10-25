@@ -122,11 +122,7 @@ const NotificationBanner = () => {
             <button
               className="btn-gold-hover group inline-flex h-10 w-fit items-center justify-center gap-2 rounded-[10px] border-2 border-[gold] bg-[gold] px-4 py-2 font-bold text-[#050a30] text-sm leading-none transition-all duration-300 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-md"
               onClick={() => {
-                window.open(
-                  "https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk",
-                  "_blank",
-                  "noopener,noreferrer"
-                );
+                window.location.href = "/how-to-apply";
                 handleClose();
               }}
               type="button"
@@ -538,7 +534,7 @@ export default function Home() {
           <div className="flex h-full min-h-screen items-center">
             <div className="w-full py-20 lg:py-32">
               {/* Left Content - moved slightly left to avoid button overlap */}
-              <div className="ml-0 flex max-w-2xl flex-col justify-center space-y-4 sm:ml-4 sm:space-y-6 lg:ml-8 lg:max-w-3xl lg:space-y-8 xl:max-w-4xl">
+              <div className="ml-0 flex max-w-2xl flex-col justify-center space-y-2 sm:ml-4 sm:space-y-3 lg:ml-8 lg:max-w-3xl lg:space-y-4 xl:max-w-4xl">
                 {/* Youth Changemaker Bootcamp Badge */}
                 {/* <div className="w-fit rounded-full bg-[gold] px-4 py-2 sm:px-6 sm:py-3 lg:px-9 lg:py-4">
                   <span className="font-bold text-[#1a365d] text-sm sm:text-base lg:text-lg">
@@ -547,15 +543,18 @@ export default function Home() {
                 </div> */}
 
                 {/* Main Heading with typewriter effect */}
-                <h1 className="font-bold text-4xl leading-tight md:text-5xl lg:text-7xl">
-                  <span className="typewriter-line typewriter-1 typewriter-caret caret-window-1 text-white">Dream it.</span>{" "}
-                  <span className="typewriter-line typewriter-2 typewriter-caret caret-window-2 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF8C00] bg-clip-text text-transparent">
-                    Build it.
-                  </span>
-                  <br />
-                  <span className="typewriter-line typewriter-3 typewriter-caret-light caret-window-3 pr-1 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF8C00] bg-clip-text text-transparent">
-                    Change it.
-                  </span>
+                <h1 className="font-bold text-4xl leading-tight md:text-5xl lg:text-7xl space-y-1">
+                  <div className="leading-none">
+                    <span className="typewriter-line typewriter-1 typewriter-caret caret-window-1 text-white">Dream it.</span>{" "}
+                    <span className="typewriter-line typewriter-2 typewriter-caret caret-window-2 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF8C00] bg-clip-text text-transparent">
+                      Build it.
+                    </span>
+                  </div>
+                  <div className="leading-none">
+                    <span className="typewriter-line typewriter-3 typewriter-caret-light caret-window-3 pr-1 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF8C00] bg-clip-text text-transparent">
+                      Change it.
+                    </span>
+                  </div>
                 </h1>
 
                 {/* Short description */}
