@@ -226,7 +226,7 @@ export default function ContactPage() {
                 </div>
 
                 <Button
-                  className="group hover:-translate-y-1 hover-glow flex h-12 w-full items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-300 hover:border-white hover:bg-white hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:text-base"
+                  className="btn-gold-hover group hover:-translate-y-1 hover-glow flex h-12 w-full items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-500 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:text-base"
                   disabled={isSubmitting}
                   type="submit"
                 >
