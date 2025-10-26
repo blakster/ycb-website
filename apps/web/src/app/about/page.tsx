@@ -623,7 +623,7 @@ const AboutPage = () => {
         question:
           "Is YCB a partnered program or connected to the host institution?",
         answer:
-          "No, YCB is a flagship program of the Tale of Humankind foundation. The host institute is not responsible for design, curriculum, or delivery.",
+          "No, YCB is a flagship program of the Tale of Humankind foundation.",
       },
       {
         question: "How intensive is the daily schedule?",
@@ -1282,7 +1282,7 @@ const AboutPage = () => {
                             </span>
                           </div>
                           <div className="mt-3 text-gray-800 text-sm">
-                            <strong>Deadline to apply:</strong> November 15,
+                            <strong>Deadline to apply:</strong> November 22,
                             2025
                           </div>
                         </div>
@@ -1367,7 +1367,8 @@ const AboutPage = () => {
 
                         <div className="text-sm">
                           <span className="text-gray-600">
-                            <strong>Deadline to apply:</strong> May 30, 2025
+                            <strong>Deadline to apply:</strong> November 15,
+                            2025
                           </span>
                         </div>
 
