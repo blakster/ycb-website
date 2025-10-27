@@ -1,0 +1,32 @@
+{
+  "name": "Young Changemakers Bootcamp",
+  "short_name": "YCB",
+  "description": "Empowering the next generation of leaders and changemakers through transformative experiences and collaborative learning.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050a30",
+  "theme_color": "#FFD700",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["education", "social", "lifestyle"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

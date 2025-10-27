@@ -71,8 +71,61 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ycb-website",
-  description: "ycb-website",
+  title: {
+    default: "Young Changemakers Bootcamp",
+    template: "%s | Young Changemakers Bootcamp",
+  },
+  description:
+    "The Young Changemakers Bootcamp (YCB) is an intensive one-week residential program for high school students (grade 9 to 12 or equivalent)",
+  keywords: [
+    "Young Changemakers Bootcamp",
+    "ycb",
+    "YCB",
+    "youth leadership",
+    "changemakers",
+    "student bootcamp",
+    "leadership program",
+    "social impact",
+    "youth empowerment",
+  ],
+  authors: [{ name: "Tale of Humankind" }],
+  creator: "Tale of Humankind",
+  publisher: "Tale of Humankind",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://ycbootcamp.taleofhumankind.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Young Changemakers Bootcamp",
+    description:
+      "Empowering the next generation of leaders and changemakers through transformative experiences and collaborative learning.",
+    url: "https://ycbootcamp.taleofhumankind.com",
+    siteName: "Young Changemakers Bootcamp",
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "Young Changemakers Bootcamp",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Young Changemakers Bootcamp",
+    description:
+      "Empowering the next generation of leaders and changemakers through transformative experiences and collaborative learning.",
+    images: ["/icon.png"],
+  },
+
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
