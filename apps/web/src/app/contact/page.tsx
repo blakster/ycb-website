@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { contactApi } from "@/lib/api";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -30,20 +31,34 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage("");
 
-    // Simulate form submission (replace with actual implementation)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setSubmitMessage(
-        "Thank you for your message! We'll get back to you soon."
-      );
-      setFormData({
-        name: "",
-        email: "",
-        number: "",
-        subject: "",
-        content: "",
+      const response = await contactApi.submit({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.number || undefined,
+        subject: formData.subject,
+        message: formData.content,
       });
+
+      if (response.success) {
+        setSubmitMessage(
+          "Thank you for your message! We'll get back to you soon."
+        );
+        setFormData({
+          name: "",
+          email: "",
+          number: "",
+          subject: "",
+          content: "",
+        });
+      } else {
+        setSubmitMessage(
+          response.error ||
+            "Sorry, there was an error sending your message. Please try again."
+        );
+      }
     } catch (_error) {
       setSubmitMessage(
         "Sorry, there was an error sending your message. Please try again."

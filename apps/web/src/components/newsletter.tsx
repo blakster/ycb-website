@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { newsletterApi } from "@/lib/api";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -14,14 +16,25 @@ export default function Newsletter() {
     }
 
     setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsSubscribed(true);
-    setIsLoading(false);
-    setEmail("");
+    setError("");
 
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubscribed(false), 3000);
+    try {
+      const response = await newsletterApi.subscribe(email);
+
+      if (response.success) {
+        setIsSubscribed(true);
+        setEmail("");
+
+        // Reset success message after 3 seconds
+        setTimeout(() => setIsSubscribed(false), 3000);
+      } else {
+        setError(response.error || "Failed to subscribe. Please try again.");
+      }
+    } catch (err) {
+      setError("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -144,6 +157,20 @@ export default function Newsletter() {
               )}
             </button>
           </div>
+
+          {/* Error Message */}
+          {error && (
+            <div className="mt-4 flex items-center justify-center gap-2 text-red-600">
+              <svg
+                className="h-5 w-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+              </svg>
+              <span className="font-medium text-sm">{error}</span>
+            </div>
+          )}
 
           {/* Success Message */}
           {isSubscribed && (
