@@ -999,7 +999,7 @@ const AboutPage = () => {
                             Bootcamp Dates
                           </div>
                           <div className="text-gray-600 text-sm">
-                            December 17–23, 2025
+                            December 17–23, 2025 at IIT Delhi Campus
                           </div>
                         </div>
                       </div>
