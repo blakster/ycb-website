@@ -116,7 +116,8 @@ const NotificationBanner = () => {
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-            Applications for the 6th season of YCB to be held from 17-23 December at IIT Delhi campus are live until November 22, 2025.
+            Applications for the 6th season of YCB to be held from 17-23
+            December at IIT Delhi campus are live until November 22, 2025.
           </p>
           <div className="flex items-center gap-2">
             <button
@@ -545,7 +546,9 @@ export default function Home() {
                 {/* Main Heading with typewriter effect */}
                 <h1 className="font-bold text-4xl leading-tight md:text-5xl lg:text-7xl space-y-1">
                   <div className="leading-none">
-                    <span className="typewriter-line typewriter-1 typewriter-caret caret-window-1 text-white">Dream it.</span>{" "}
+                    <span className="typewriter-line typewriter-1 typewriter-caret caret-window-1 text-white">
+                      Dream it.
+                    </span>{" "}
                     <span className="typewriter-line typewriter-2 typewriter-caret caret-window-2 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF8C00] bg-clip-text text-transparent">
                       Build it.
                     </span>

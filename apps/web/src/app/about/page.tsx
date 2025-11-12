@@ -1375,7 +1375,7 @@ const AboutPage = () => {
                         <div className="rounded-lg bg-purple-50 p-4">
                           <div className="text-sm">
                             <span className="font-medium text-gray-700">
-                              In past editions, over 30% of participants
+                              In past editions, over 60% of participants
                               attended with partial or full scholarships.
                             </span>
                           </div>
