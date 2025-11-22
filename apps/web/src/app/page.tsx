@@ -117,7 +117,7 @@ const NotificationBanner = () => {
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
             Applications for the 6th season of YCB to be held from 17-23
-            December at IIT Delhi campus are live until November 22, 2025.
+            December at IIT Delhi campus has been extended until November 30, 2025.
           </p>
           <div className="flex items-center gap-2">
             <button
