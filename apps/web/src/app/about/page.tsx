@@ -947,7 +947,7 @@ const AboutPage = () => {
                             Application Deadline
                           </div>
                           <div className="text-gray-600 text-sm">
-                            November 30, 2025
+                            December 7, 2025
                           </div>
                         </div>
                       </div>
