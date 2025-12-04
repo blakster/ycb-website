@@ -26,21 +26,17 @@ import Quotation from "@/assets/quotations.png";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/ui/marquee";
 import WorldMap from "@/components/ui/world-map";
+import { loadHeroSlides, loadTestimonials } from "@/lib/content-loader";
+import {
+  FALLBACK_HERO_SLIDES,
+  FALLBACK_TESTIMONIALS,
+  type Testimonial,
+} from "@/lib/static-data";
 import alumniAbhijay from "./featured/alumni_story/Abhijay.jpg";
 import alumniManan from "./featured/alumni_story/Manan.jpg";
 import alumniNandini from "./featured/alumni_story/Nandini.jpg";
 import alumniNishtha from "./featured/alumni_story/Nishtha.jpg";
 import alumniTseten from "./featured/alumni_story/Tseten.jpg";
-import img_2226 from "./hero_images/IMG_2226.jpg";
-import img_2243 from "./hero_images/IMG_2243.jpg";
-import img_2247 from "./hero_images/IMG_2247.jpg";
-import img_2264 from "./hero_images/IMG_2264.jpg";
-import img_7940 from "./hero_images/IMG_7940.jpg";
-import ajaiAvatar from "./testi/Ajai.avif";
-import ariqaAvatar from "./testi/Ariqa.jpeg";
-import praveshAvatar from "./testi/Pravesh.jpg";
-import vishalAvatar from "./testi/Vishal.jpg";
-import yashveerAvatar from "./testi/Yashveer.jpg";
 
 // Notification Banner Component
 const NotificationBanner = () => {
@@ -222,66 +218,8 @@ const AnimatedCounter = ({
   );
 };
 
-// Hero slider images (local)
-const heroImages = [
-  img_7940.src,
-  img_2243.src,
-  img_2247.src,
-  img_2264.src,
-  img_2226.src,
-];
-
-// Testimonial data (updated)
-type Testimonial = {
-  id: number;
-  name: string;
-  role: string;
-  quote: string;
-  avatar?: string | StaticImageData;
-};
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "Ajai Chowdhry",
-    role: "Co-founder, HCL",
-    avatar: ajaiAvatar,
-    quote:
-      "The Young Changemakers Bootcamp is shaping the next generation of thinkers, innovators, and leaders. I was truly inspired to see how these young minds approached real-world problems with empathy, creativity, and purpose. Programs like YCB are building the foundation for a new India - one driven by curiosity, courage, and changemaking spirit.",
-  },
-  {
-    id: 2,
-    name: "Ariqa Rizwan",
-    role: "Participant, Summer 2023 Edition",
-    avatar: ariqaAvatar,
-    quote:
-      "Being part of the Young Changemakers Bootcamp was a defining moment in my journey. Interacting with mentors and innovators from diverse fields opened my mind to new ideas and perspectives. Above all, it reminded me that age is never a barrier to creating meaningful change.",
-  },
-  {
-    id: 3,
-    name: "Yashveer Singh",
-    role: "Global Director, Ashoka Young Changemakers",
-    avatar: yashveerAvatar,
-    quote:
-      "When I met the students at YCB, I saw a spark, the same one that drives every changemaker who starts young. Every participant I met carried a deep sense of purpose, and that’s the true success of this initiative. What Tale of Humankind is doing through YCB is remarkable: helping young people realize that they don’t need to wait to make a difference.",
-  },
-  {
-    id: 4,
-    name: "Pravesh Biyani",
-    role: "Professor, IIIT Delhi",
-    avatar: praveshAvatar,
-    quote:
-      "Hosting the YCB sessions was a delight. The students’ energy, curiosity, and willingness to engage with complex ideas were remarkable. It’s rare to see such integration of empathy and innovation in early education - YCB achieves that beautifully.",
-  },
-  {
-    id: 5,
-    name: "Vishal Pal Singh",
-    role: "IRS Officer, Parent of Participant",
-    avatar: vishalAvatar,
-    quote:
-      "Having spent years in public service, I’ve seen how crucial early leadership and empathy are. YCB helps young people build those values beautifully. My child came back more self-assured and socially aware — it was heartwarming to see such transformation at that age.",
-  },
-];
+// Note: Hero images and testimonials are now loaded dynamically
+// Fallback data is imported from @/lib/static-data
 
 // Testimonial Card Component
 const TestimonialCard = ({
@@ -379,6 +317,33 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [_isVideoPlaying, setIsVideoPlaying] = useState(false);
 
+  // Dynamic content state (initialized with fallback data)
+  const [heroSlides, setHeroSlides] = useState(FALLBACK_HERO_SLIDES);
+  const [testimonials, setTestimonials] = useState(FALLBACK_TESTIMONIALS);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Load dynamic content on mount
+  useEffect(() => {
+    async function loadContent() {
+      try {
+        const [slides, testimonialData] = await Promise.all([
+          loadHeroSlides(),
+          loadTestimonials(),
+        ]);
+
+        setHeroSlides(slides);
+        setTestimonials(testimonialData);
+      } catch (error) {
+        console.error("Failed to load dynamic content:", error);
+        // Keep fallback data on error
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadContent();
+  }, []);
+
   // Summary points data used in About YCB section
   const summaryPoints = [
     {
@@ -452,23 +417,23 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
-        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+        prevIndex === heroSlides.length - 1 ? 0 : prevIndex + 1
       );
     }, HERO_IMAGE_SLIDE_DURATION); // Change image every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [heroSlides.length]);
 
   // Navigation functions
   const goToPrevious = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
+      prevIndex === 0 ? heroSlides.length - 1 : prevIndex - 1
     );
   };
 
   const goToNext = () => {
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      prevIndex === heroSlides.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -489,14 +454,14 @@ export default function Home() {
       >
         {/* Background image slider */}
         <div className="absolute inset-0">
-          {heroImages.map((image, index) => (
+          {heroSlides.map((slide, index) => (
             <div
               className={`absolute inset-0 bg-cover bg-no-repeat transition-opacity duration-1000 ${
                 index === currentImageIndex ? "opacity-100" : "opacity-0"
               }`}
-              key={index}
+              key={slide.id || index}
               style={{
-                backgroundImage: `url(${image})`,
+                backgroundImage: `url(${slide.imageUrl})`,
                 backgroundPosition:
                   index === 1 || index === 2 ? "center 35%" : "center",
               }}
@@ -581,7 +546,7 @@ export default function Home() {
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <div className="flex items-center gap-2">
-                  {heroImages.map((_, index) => (
+                  {heroSlides.map((_, index) => (
                     <button
                       aria-label={`Go to slide ${index + 1}`}
                       className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
@@ -607,7 +572,7 @@ export default function Home() {
 
               {/* Desktop: top/center dots only */}
               <div className="-translate-x-1/2 absolute bottom-8 left-1/2 z-20 hidden transform space-x-2 lg:flex">
-                {heroImages.map((_, index) => (
+                {heroSlides.map((_, index) => (
                   <button
                     aria-label={`Go to slide ${index + 1}`}
                     className={`h-3 w-3 rounded-full transition-all duration-300 ${
@@ -885,7 +850,7 @@ export default function Home() {
 
             {/* Testimonial Cards with Marquee */}
             <div className="-ml-[50vw] -mr-[50vw] relative right-[50%] left-[50%] w-[100vw]">
-              <TestimonialsMarquee className="[--duration:20s]" />
+              <TestimonialsMarquee className="[--duration:20s]" testimonials={testimonials} />
             </div>
           </div>
         </div>
@@ -1258,7 +1223,13 @@ function MobileSummaryControls({ iconOnly = false }: { iconOnly?: boolean }) {
 
 const MD_BREAKPOINT = 768;
 
-function TestimonialsMarquee({ className = "" }: { className?: string }) {
+function TestimonialsMarquee({
+  className = "",
+  testimonials
+}: {
+  className?: string;
+  testimonials: Testimonial[];
+}) {
   const [paused, setPaused] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 

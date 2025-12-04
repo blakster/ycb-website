@@ -3,7 +3,8 @@
 import { Users } from "lucide-react";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { loadMentors } from "@/lib/content-loader";
 import AarushiKhare from "./assets_speakers/Aarushi Khare.jpeg";
 import AbhiirBhalla from "./assets_speakers/Abhiir Bhalla.jpeg";
 import AchintyaGhoshal from "./assets_speakers/Achintya Ghoshal.jpg";
@@ -114,8 +115,8 @@ const mentorImages: Record<string, StaticImageData> = {
   "Upasana Ravikannan": UpasanaRavikannan,
 };
 
-// Past Mentors Data (actual YCB mentors and speakers)
-const speakersData = [
+// Static fallback mentors data (actual YCB mentors and speakers)
+const staticMentorsData = [
   {
     id: 1,
     name: "Debjani Ghosh",
@@ -792,8 +793,37 @@ const NetworkPage = () => {
   );
   const [selectedWorkshop, setSelectedWorkshop] = useState("Summer 2025");
   const [showAllMentors, setShowAllMentors] = useState(false);
+  const [mentorsData, setMentorsData] = useState(staticMentorsData);
+  const [loading, setLoading] = useState(true);
 
   const workshopYears = Object.keys(workshopData);
+
+  // Load mentors from API or use static fallback
+  useEffect(() => {
+    async function loadContent() {
+      try {
+        const dynamicMentors = await loadMentors();
+        if (dynamicMentors && dynamicMentors.length > 0) {
+          // Map API mentor format to component format
+          const formattedMentors = dynamicMentors.map((mentor: any, index: number) => ({
+            id: index + 1,
+            name: mentor.name || mentor.fullName || "",
+            position: mentor.designation || mentor.position || "",
+            organization: mentor.organization || mentor.affiliation || "",
+            linkedin: mentor.socialLinks?.linkedin || mentor.linkedin || "",
+            image: mentor.imageUrl || "/api/placeholder/200/200",
+          }));
+          setMentorsData(formattedMentors);
+        }
+      } catch (error) {
+        console.error("Failed to load mentors:", error);
+        // Keep static fallback
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadContent();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/50">
@@ -877,8 +907,8 @@ const NetworkPage = () => {
 
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                     {(showAllMentors
-                      ? speakersData
-                      : speakersData.slice(0, 10)
+                      ? mentorsData
+                      : mentorsData.slice(0, 10)
                     ).map((speaker) => (
                       <div
                         className="group hover:-translate-y-1 rounded-xl border border-gray-100 bg-gradient-to-br from-white to-gray-50 p-6 transition-all duration-300 hover:border-[#FFD700]/30 hover:shadow-xl"
@@ -919,7 +949,7 @@ const NetworkPage = () => {
                   </div>
 
                   {/* View More Button */}
-                  {!showAllMentors && speakersData.length > 10 && (
+                  {!showAllMentors && mentorsData.length > 10 && (
                     <div className="mt-8 flex justify-center">
                       <button
                         className="btn-gold-hover group hover:-translate-y-1 hover-glow flex h-12 w-fit items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-6 py-3 font-bold text-[#050a30] text-sm leading-[22.4px] transition-all duration-500 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-lg sm:h-14 sm:px-10 sm:py-4 sm:text-base lg:px-12 lg:py-5 lg:text-lg"

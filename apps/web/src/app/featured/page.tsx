@@ -1,9 +1,10 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Blog8 } from "@/components/blog";
 import { Button } from "@/components/ui/button";
+import { loadStories } from "@/lib/content-loader";
 import Abhijay from "./alumni_story/Abhijay.jpg";
 import Manan from "./alumni_story/Manan.jpg";
 import Nandini from "./alumni_story/Nandini.jpg";
@@ -15,8 +16,8 @@ import Tseten from "./alumni_story/Tseten.jpg";
 // Constants
 const POSTS_PER_PAGE = 4;
 
-// YCB-specific featured stories data
-const ycbBlogPosts = [
+// Static fallback stories data
+const staticBlogPosts = [
   {
     id: "nandini-nithyanandh-winter-2023",
     title:
@@ -127,13 +128,33 @@ const ycbBlogPosts = [
 
 const FeaturedPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [blogPosts, setBlogPosts] = useState(staticBlogPosts);
+  const [loading, setLoading] = useState(true);
+
+  // Load stories from API or use static fallback
+  useEffect(() => {
+    async function loadContent() {
+      try {
+        const stories = await loadStories();
+        if (stories && stories.length > 0) {
+          setBlogPosts(stories);
+        }
+      } catch (error) {
+        console.error("Failed to load stories:", error);
+        // Keep static fallback
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadContent();
+  }, []);
 
   // Calculate pagination values
-  const totalPosts = ycbBlogPosts.length;
+  const totalPosts = blogPosts.length;
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
-  const currentPosts = ycbBlogPosts.slice(startIndex, endIndex);
+  const currentPosts = blogPosts.slice(startIndex, endIndex);
 
   // Pagination handlers
   const goToPage = (page: number) => {
