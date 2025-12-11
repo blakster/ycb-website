@@ -116,8 +116,8 @@ const NotificationBanner = () => {
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-            Applications for the 6th season of YCB to be held from 17-23
-            December at IIT Delhi campus has been extended until December 7, 2025.
+            Applications for the 6th edition of Young Changemakers Bootcamp from 17-23
+            December at IIT Delhi campus are now closed.
           </p>
           <div className="flex items-center gap-2">
             <button
