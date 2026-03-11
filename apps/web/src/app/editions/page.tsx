@@ -22,6 +22,7 @@ import s2_group from "./../../assets/group/s2_group.jpg";
 import s3_group from "./../../assets/group/s3_group.jpg";
 import s4_group from "./../../assets/group/s4_group.jpeg";
 import s5_group from "./../../assets/group/s5_group.jpg";
+import s6_group from "./../../assets/group/s6_group.jpg";
 import s1_gallery_1 from "./s1_gallery/IMG_2207.jpg";
 import s1_gallery_2 from "./s1_gallery/IMG_2208.jpg";
 import s1_gallery_3 from "./s1_gallery/IMG_2209.jpg";
@@ -83,6 +84,22 @@ import s5_gallery_13 from "./s5_gallery/IMG_2252 Large.jpeg";
 import s5_gallery_14 from "./s5_gallery/IMG_2253 Large.jpeg";
 import s5_gallery_15 from "./s5_gallery/IMG_2254 Large.jpeg";
 import s5_gallery_16 from "./s5_gallery/IMG_2255 Large.jpeg";
+import s6_gallery_1 from "./s6_gallery/1.jpeg";
+import s6_gallery_2 from "./s6_gallery/2.jpeg";
+import s6_gallery_3 from "./s6_gallery/3.jpeg";
+import s6_gallery_4 from "./s6_gallery/4.jpeg";
+import s6_gallery_5 from "./s6_gallery/5.jpeg";
+import s6_gallery_6 from "./s6_gallery/6.jpeg";
+import s6_gallery_7 from "./s6_gallery/7 Large.jpeg";
+import s6_gallery_8 from "./s6_gallery/8 Large.jpeg";
+import s6_gallery_9 from "./s6_gallery/9 Large.jpeg";
+import s6_gallery_10 from "./s6_gallery/10 Large.jpeg";
+import s6_gallery_11 from "./s6_gallery/11 Large.jpeg";
+import s6_gallery_12 from "./s6_gallery/12 Large.jpeg";
+import s6_gallery_13 from "./s6_gallery/13 Large.jpeg";
+import s6_gallery_14 from "./s6_gallery/14 Large.jpeg";
+import s6_gallery_15 from "./s6_gallery/15 Large.jpeg";
+import s6_gallery_16 from "./s6_gallery/16 Large.jpeg";
 
 const editionsData = {
   "YCB Season 1": {
@@ -927,11 +944,136 @@ const editionsData = {
     //     "Reminder that changemaking is a way of life",
     //   ],
     // },
+	},
+
+	"YCB Season 6": {
+    year: "2025",
+    season: "December 2025",
+    name: "YCB 2025 - Winter Edition",
+    status: "completed",
+    location: "IIT Delhi",
+    participants: 45,
+    states: 8,
+    schools: 25,
+    expectedParticipants: 45,
+    dates: "December 2025",
+    tagline: "An empowering ecosystem to design, innovate, change, and lead.",
+    registrationOpen: false,
+    groupPhoto: s6_group.src,
+    comingSoonImage: s6_group.src,
+
+    highlights: {
+      keynotes: [
+        "Prof. Ganesh Bagler",
+        "Saurabh Jain",
+        "Prof. Gautam Shroff",
+        "Prof. Alok Srivastava",
+        "Prof. Sonal Keshwani",
+        "Himanshi Singh",
+        "Tushar Singh Bodwal",
+        "Yashveer Singh",
+        "Sonia Wadhwa",
+        "Charu Pragya",
+      ],
+      workshops: [
+        "Design Thinking and Problem Validation",
+        "AI, Machine Learning, and ChatGPT",
+        "Creativity",
+        "Inventive Problem Solving",
+        "Figma-based Prototyping",
+        "Business Model Canvas",
+        "Expressive Art Workshops",
+      ],
+      visits: [
+        "Rashtrapati Bhavan",
+        "Nehru Planetarium",
+        "Pradhanmantri Sangrahalaya",
+        "IIT Delhi Campus",
+      ],
+      activities: [
+        "Movie Nights",
+        "Talent Showcases",
+        "Late-night Campus Walks",
+        "My Idea for Change Pitching",
+      ],
+    },
+
+    narrativeContent: {
+      intro:
+        "The year 2025 ended with a remarkable 6th edition of YCB. One transformative week, where high school students from across India explored what it truly means to be a changemaker. A journey where participants identified pressing challenges, crafted impactful prototypes, and strengthened their confidence to lead purpose-driven change.",
+      visionaryLeadership:
+        "This season was shaped by leaders and practitioners who brought lived experience, depth, and honesty into the learning space. The journey began with Prof. Ganesh Bagler and Saurabh Jain setting the tone for changemaking rooted in purpose and responsibility. Academic perspectives from Prof. Gautam Shroff, Prof. Alok Srivastava, and Prof. Sonal Keshwani helped students understand design thinking and innovation through a real-world lens. Industry and ecosystem voices like Himanshi Singh and Tushar Singh Bodwal bridged ideas with execution. With creative exploration led by Rozy Maindoliya, the bootcamp culminated with the pitching jury, Yashveer Singh, Sonia Wadhwa, and Charu Pragya, who challenged students to think critically about impact.",
+      handsOnLearning:
+        "Hands-on learning formed the core, where students actively explored how ideas turn into real-world solutions. Through sessions on Design Thinking and problem validation, participants learned to observe deeply and design with empathy. AI, Machine Learning, and ChatGPT were demystified to help students understand both the power and responsibility of emerging technologies. Workshops on Creativity, Inventive Problem Solving, Figma-based prototyping, and Business Model Canvas enabled students to experiment, iterate, and refine their ideas. These sessions were highly interactive, encouraging collaboration, critical thinking, and practical application rather than passive learning.",
+      immersiveExperiences:
+        "YCB is always known for learning beyond classrooms through thoughtfully designed immersive experiences. Participants explored India’s institutional and scientific heritage through visits to Rashtrapati Bhavan, Nehru Planetarium, and Pradhanmantri Sangrahalaya, sparking reflection on leadership, history, and innovation at a national scale. These shared journeys created space for informal learning, curiosity-driven conversations, and deeper peer connections. Whether discussing ideas during campus walks or reflecting on exhibits together, students experienced how exposure to diverse environments can broaden perspective and inspire changemaking rooted in context and culture.",
+      communityBuilding:
+        "At the heart of this season was a strong sense of community built through shared moments beyond structured sessions. Expressive art workshops created safe spaces for self-expression and reflection, while movie nights and talent showcases allowed students to unwind, celebrate individuality, and cheer each other on. Late-night campus walks, informal conversations, and the final farewell brought the cohort closer, turning peers into lifelong friends and helping them experience what true collaboration and belonging feel like. This set an essential foundation for changemakers to work together and create a meaningful impact.",
+      conclusion:
+        "YCB Season 6 concluded as a movement of young minds driven by curiosity and compassion. It reminded us that changemaking isn’t just a pursuit; it’s a way of life, and for every student who walked through those gates, it was the beginning of a lifelong journey of creating impact.",
+      closingMessage:
+        "A journey of discovery, resilience, and purpose, which left participants equipped, confident, and deeply inspired to continue their changemaking journey long after the camp concluded.",
+    },
+
+    galleryImages: [
+      { src: s6_gallery_1.src, alt: "YCB Season 6 - Gallery 1" },
+      { src: s6_gallery_2.src, alt: "YCB Season 6 - Gallery 2" },
+      { src: s6_gallery_3.src, alt: "YCB Season 6 - Gallery 3" },
+      { src: s6_gallery_4.src, alt: "YCB Season 6 - Gallery 4" },
+      { src: s6_gallery_5.src, alt: "YCB Season 6 - Gallery 5" },
+      { src: s6_gallery_6.src, alt: "YCB Season 6 - Gallery 6" },
+      { src: s6_gallery_7.src, alt: "YCB Season 6 - Gallery 7" },
+      { src: s6_gallery_8.src, alt: "YCB Season 6 - Gallery 8" },
+      { src: s6_gallery_9.src, alt: "YCB Season 6 - Gallery 9" },
+      { src: s6_gallery_10.src, alt: "YCB Season 6 - Gallery 10" },
+      { src: s6_gallery_11.src, alt: "YCB Season 6 - Gallery 11" },
+      { src: s6_gallery_12.src, alt: "YCB Season 6 - Gallery 12" },
+      { src: s6_gallery_13.src, alt: "YCB Season 6 - Gallery 13" },
+      { src: s6_gallery_14.src, alt: "YCB Season 6 - Gallery 14" },
+      { src: s6_gallery_15.src, alt: "YCB Season 6 - Gallery 15" },
+      { src: s6_gallery_16.src, alt: "YCB Season 6 - Gallery 16" },
+    ],
+
+    winningIdeas: [
+      {
+        title: "Libra AI",
+        description:
+          "An AI layer that detects, corrects, and verifies bias across text and images before deployment.",
+        team: "Aashwi Agrawal, Adamya Singh, Kushagra Khare, Moksh Sindhwani, Tanush BM",
+      },
+      {
+        title: "Team Kṛ",
+        description:
+          "One platform unifying hyperlocal events, opportunities, and talent discovery nationwide.",
+        team: "Ishaan J, Kavita, Raahini Karunakaram, Tanishq Aggarwal, Tanvi Kumari",
+      },
+    ],
+
+    testimonials: [
+      {
+        quote:
+          "The Young Changemakers Bootcamp was an incredible experience. The sessions with passionate entrepreneurs and professors were insightful, and the hands-on workshops helped me build practical skills for my own projects. Meeting driven young people was inspiring, and the program gave me the confidence to turn ideas into meaningful action.",
+        author: "Aashwi Agrawal",
+        location: "Madhya Pradesh",
+      },
+      {
+        quote:
+          "YCB pushed me out of my comfort zone in the best way possible. From pitching ideas to reflecting quietly during activities, every day helped me grow. It taught me that changemaking isn’t about being perfect, it’s about caring enough to try.",
+        author: "Nimay Kakumanu",
+        location: "Maharashtra",
+      },
+      {
+        quote:
+          "The Young Changemakers Bootcamp at IIT Delhi was a truly memorable experience. I arrived feeling nervous among strangers, but left with friends, mentors, and a broader perspective. The sessions, conversations, and shared moments made it special. It didn’t just inspire ideas, it changed how I see impact and my role in creating it.",
+        author: "Yukti Agrawal",
+        location: "Karnataka",
+      },
+    ],
   },
 };
 
 const EditionsPage = () => {
-  const [selectedEdition, setSelectedEdition] = useState("YCB Season 5");
+  const [selectedEdition, setSelectedEdition] = useState("YCB Season 6");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const editions = Object.keys(editionsData);
@@ -1584,13 +1726,17 @@ const EditionsPage = () => {
                 <div className="mx-auto max-w-3xl">
                   <div className="mb-4 text-4xl">✨</div>
                   <p className="text-xl leading-relaxed lg:text-2xl">
-                    <strong>{selectedEdition}</strong> wasn't just a program, it
-                    was a launchpad for{" "}
-                    <span className="text-[#FFD700]">
-                      {currentEdition.participants} young changemakers
-                    </span>{" "}
-                    who are now carrying their projects back into schools and
-                    communities across India.
+                    {(currentEdition.narrativeContent as any)?.closingMessage || (
+                      <>
+                        <strong>{selectedEdition}</strong> wasn't just a program, it
+                        was a launchpad for{" "}
+                        <span className="text-[#FFD700]">
+                          {currentEdition.participants} young changemakers
+                        </span>{" "}
+                        who are now carrying their projects back into schools and
+                        communities across India.
+                      </>
+                    )}
                   </p>
                 </div>
               </div>

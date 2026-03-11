@@ -112,12 +112,11 @@ const NotificationBanner = () => {
           <div className="flex items-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-[gold]" />
             <h3 className="font-semibold text-[#050a30] text-sm sm:text-base">
-              YCB Season-6
+              YCB Season-7
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-            Applications for the 6th edition of Young Changemakers Bootcamp from 17-23
-            December at IIT Delhi campus are now closed.
+          Applications for the 7th edition of Young Changemakers Bootcamp will open soon.
           </p>
           <div className="flex items-center gap-2">
             <button
@@ -765,14 +764,7 @@ export default function Home() {
             </h2>
             <div className="gradient-underline mx-auto mb-4" />
             <p className="mx-auto mb-1 max-w-4xl text-[#718096] text-lg sm:mb-12 lg:mb-16">
-              Over the past five editions, the Young Changemakers Bootcamp has
-              brought together over 210+ alumni from 12+ states — from the hills
-              of Sikkim to the deserts of Rajasthan, from Delhi's classrooms to
-              the coasts of Tamil Nadu. These students didn't just attend a
-              program — they built libraries in rural villages, started
-              eco-clubs, improved sanitation facilities, and even pitched ideas
-              that secured funding. What began as a bootcamp is now a growing
-              nationwide network of young innovators, leaders, and changemakers.
+            Over the past six editions, the Young Changemakers Bootcamp has brought together over 255+ alumni from 18 states - from the hills of Sikkim to the deserts of Rajasthan, from Delhi's classrooms to the coasts of Tamil Nadu. These students didn't just attend a program - they built libraries in rural villages, started eco-clubs, improved sanitation facilities, and even pitched ideas that secured funding. What began as a bootcamp is now a growing nationwide network of young innovators, leaders, and changemakers.
             </p>
 
             {/* Stats Grid */}
@@ -780,7 +772,7 @@ export default function Home() {
               {/* Editions */}
               <div className="hover-lift hover-glow smooth-hover relative w-full overflow-hidden rounded-lg bg-[#050a30] p-3 shadow-lg sm:rounded-xl sm:p-4 lg:p-6">
                 <div className="relative z-10 text-center">
-                  <AnimatedCounter duration={1500} suffix="" target={5} />
+                  <AnimatedCounter duration={1500} suffix="" target={6} />
                   <p className="text-white text-xs sm:text-sm">Editions</p>
                 </div>
               </div>
@@ -788,7 +780,7 @@ export default function Home() {
               {/* Alumni */}
               <div className="hover-lift hover-glow smooth-hover relative w-full overflow-hidden rounded-lg bg-[#050a30] p-3 shadow-lg sm:rounded-xl sm:p-4 lg:p-6">
                 <div className="relative z-10 text-center">
-                  <AnimatedCounter duration={1750} suffix="+" target={210} />
+                  <AnimatedCounter duration={1750} suffix="+" target={258} />
                   <p className="text-white text-xs sm:text-sm">Alumni</p>
                 </div>
               </div>
@@ -796,7 +788,7 @@ export default function Home() {
               {/* Student Projects */}
               <div className="hover-lift hover-glow smooth-hover relative w-full overflow-hidden rounded-lg bg-[#050a30] p-3 shadow-lg sm:rounded-xl sm:p-4 lg:p-6">
                 <div className="relative z-10 text-center">
-                  <AnimatedCounter duration={2000} suffix="+" target={60} />
+                  <AnimatedCounter duration={2000} suffix="+" target={90} />
                   <p className="text-white text-xs sm:text-sm">
                     Student Projects
                   </p>
@@ -806,7 +798,7 @@ export default function Home() {
               {/* Lives Impacted */}
               <div className="hover-lift hover-glow smooth-hover relative w-full overflow-hidden rounded-lg bg-[#050a30] p-3 shadow-lg sm:rounded-xl sm:p-4 lg:p-6">
                 <div className="relative z-10 text-center">
-                  <AnimatedCounter duration={2500} suffix="+" target={75_000} />
+                  <AnimatedCounter duration={2500} suffix="+" target={90_000} />
                   <p className="text-white text-xs sm:text-sm">
                     Lives Impacted
                   </p>
