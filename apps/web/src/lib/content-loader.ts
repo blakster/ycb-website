@@ -36,6 +36,7 @@ const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 /**
  * Fetch and cache CMS toggle settings
+ * Maps backend toggle names (useDb*) to frontend names (use*)
  */
 async function getToggles(): Promise<Record<string, boolean>> {
   const now = Date.now();
@@ -50,9 +51,21 @@ async function getToggles(): Promise<Record<string, boolean>> {
 
     if (response.success && response.data) {
       // Handle the response structure from the API
-      const toggles =
-        response.data.toggles || response.data || {};
-      togglesCache = toggles as Record<string, boolean>;
+      const responseData = response.data as Record<string, unknown>;
+      const apiToggles = (responseData.toggles || responseData || {}) as Record<string, boolean>;
+
+      // Map backend toggle names (useDb*) to frontend names (use*)
+      const mappedToggles: Record<string, boolean> = {
+        useHeroSlider: apiToggles.useDbHeroSlider || false,
+        useTestimonials: apiToggles.useDbTestimonials || false,
+        useStories: apiToggles.useDbStories || false,
+        useMentors: apiToggles.useDbMentors || false,
+        useEditions: apiToggles.useDbEditions || false,
+        useAboutSection: apiToggles.useDbAboutSection || false,
+        useFeaturedArticles: apiToggles.useDbFeaturedArticles || false,
+      };
+
+      togglesCache = mappedToggles;
       togglesCacheTime = now;
       return togglesCache;
     }
@@ -88,18 +101,19 @@ export async function loadHeroSlides() {
     const response = await heroSliderApi.getActive();
 
     if (response.success && response.data) {
-      const slides = response.data.sliders || response.data;
+      const responseData = response.data as Record<string, unknown>;
+      const slides = (responseData.sliders || responseData) as Array<Record<string, unknown>>;
       // Only return API data if we have at least one slide
       if (Array.isArray(slides) && slides.length > 0) {
         console.log("Loaded hero slides from API:", slides.length);
-        return slides.map((slide: any) => ({
-          id: slide.id,
-          imageUrl: slide.imageUrl,
-          title: slide.title || "",
-          subtitle: slide.subtitle || "",
-          ctaText: slide.ctaText || "Learn More",
-          ctaLink: slide.ctaLink || "/about",
-          order: slide.order || 0,
+        return slides.map((slide) => ({
+          id: slide.id as string,
+          imageUrl: slide.imageUrl as string,
+          title: (slide.title as string) || "",
+          subtitle: (slide.subtitle as string) || "",
+          ctaText: (slide.ctaText as string) || "Learn More",
+          ctaLink: (slide.ctaLink as string) || "/about",
+          order: (slide.order as number) || 0,
           isActive: slide.isActive !== false,
         }));
       }
@@ -128,19 +142,20 @@ export async function loadTestimonials() {
     const response = await testimonialsApi.getActive();
 
     if (response.success && response.data) {
-      const testimonials = response.data.testimonials || response.data;
+      const responseData = response.data as Record<string, unknown>;
+      const testimonials = (responseData.testimonials || responseData) as Array<Record<string, unknown>>;
       // Only return API data if we have at least one testimonial
       if (Array.isArray(testimonials) && testimonials.length > 0) {
         console.log("Loaded testimonials from API:", testimonials.length);
-        return testimonials.map((t: any) => ({
-          id: t.id,
-          name: t.name,
-          role: t.role || t.designation || "",
-          quote: t.quote || t.content || "",
-          imageUrl: t.imageUrl || t.avatarUrl || "",
-          avatar: t.imageUrl || t.avatarUrl || "",
-          status: t.status || "active",
-          order: t.order || 0,
+        return testimonials.map((t) => ({
+          id: t.id as string,
+          name: t.name as string,
+          role: (t.role as string) || (t.designation as string) || (t.school as string) || "",
+          quote: (t.quote as string) || (t.content as string) || "",
+          imageUrl: (t.imageUrl as string) || (t.avatarUrl as string) || "",
+          avatar: (t.imageUrl as string) || (t.avatarUrl as string) || "",
+          status: (t.status as string) || "active",
+          order: (t.order as number) || 0,
         }));
       }
     }
@@ -175,14 +190,15 @@ export async function loadAboutSection() {
     const response = await aboutSectionApi.get();
 
     if (response.success && response.data) {
-      const content = response.data.content || response.data;
+      const responseData = response.data as Record<string, unknown>;
+      const content = (responseData.content || responseData) as Record<string, unknown>;
       console.log("Loaded about section from API");
       return {
-        stats: content.stats || FALLBACK_ABOUT_STATS,
-        features: content.features || FALLBACK_ABOUT_FEATURES,
-        videoUrl: content.videoUrl || FALLBACK_VIDEO_URL,
-        title: content.title || "",
-        description: content.description || "",
+        stats: (content.stats as typeof FALLBACK_ABOUT_STATS) || FALLBACK_ABOUT_STATS,
+        features: (content.features as typeof FALLBACK_ABOUT_FEATURES) || FALLBACK_ABOUT_FEATURES,
+        videoUrl: (content.videoUrl as string) || FALLBACK_VIDEO_URL,
+        title: (content.title as string) || "",
+        description: (content.description as string) || "",
       };
     }
   } catch (error) {
@@ -218,7 +234,8 @@ export async function loadStories(filters?: { featured?: boolean; limit?: number
       : await storiesApi.getActive();
 
     if (response.success && response.data) {
-      const stories = response.data.stories || response.data.story || response.data;
+      const responseData = response.data as Record<string, unknown>;
+      const stories = responseData.stories || responseData.story || responseData;
       if (Array.isArray(stories)) {
         console.log("Loaded stories from API:", stories.length);
         return stories;
@@ -249,7 +266,8 @@ export async function loadMentors(filters?: { category?: string; limit?: number 
     const response = await mentorsApi.getFeatured(filters?.limit);
 
     if (response.success && response.data) {
-      const mentors = response.data.mentors || response.data;
+      const responseData = response.data as Record<string, unknown>;
+      const mentors = responseData.mentors || responseData;
       if (Array.isArray(mentors)) {
         console.log("Loaded mentors from API:", mentors.length);
         return mentors;
@@ -277,7 +295,8 @@ export async function loadEditions(filters?: { status?: string; limit?: number }
     const response = await editionsApi.getAll(filters);
 
     if (response.success && response.data) {
-      const editions = response.data.editions || response.data;
+      const responseData = response.data as Record<string, unknown>;
+      const editions = responseData.editions || responseData;
       if (Array.isArray(editions)) {
         console.log("Loaded editions from API:", editions.length);
         return editions;
@@ -308,7 +327,8 @@ export async function loadFeaturedArticles(filters?: {
     const response = await featuredArticlesApi.getFeatured(filters?.limit);
 
     if (response.success && response.data) {
-      const articles = response.data.articles || response.data;
+      const responseData = response.data as Record<string, unknown>;
+      const articles = responseData.articles || responseData;
       if (Array.isArray(articles)) {
         console.log("Loaded featured articles from API:", articles.length);
         return articles;

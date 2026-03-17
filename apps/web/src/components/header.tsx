@@ -6,6 +6,8 @@ import React from "react";
 import ycbLogo from "@/assets/YCB.png";
 import { Button } from "@/components/ui/button";
 
+const PORTAL_URL = process.env.NEXT_PUBLIC_PORTAL_URL || "https://humankind-admin.web.app";
+
 export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -200,7 +202,7 @@ export default function Header() {
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90 lg:px-4 lg:py-2 lg:text-sm xl:px-6 xl:text-base"
             >
               <a
-                href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
+                href={`${PORTAL_URL}/portal/contests`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -217,7 +219,7 @@ export default function Header() {
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90"
             >
               <a
-                href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
+                href={`${PORTAL_URL}/portal/contests`}
                 rel="noopener noreferrer"
                 target="_blank"
               >

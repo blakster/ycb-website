@@ -2,6 +2,8 @@ import Image from "next/image";
 import tohkLogo from "@/assets/tohk.jpg";
 import Newsletter from "./newsletter";
 
+const PORTAL_URL = process.env.NEXT_PUBLIC_PORTAL_URL || "https://humankind-admin.web.app";
+
 export default function Footer() {
   return (
     <>
@@ -73,7 +75,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="transition-colors hover:text-[gold]"
-                    href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
+                    href={`${PORTAL_URL}/portal/contests`}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
