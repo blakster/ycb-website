@@ -55,9 +55,18 @@ import SangramjitMaity from "./assets_speakers/Sangramjit Maity.jpeg";
 import SanjeevBikchandani from "./assets_speakers/Sanjeev Bikchandani.jpeg";
 import SaurabhChaubey from "./assets_speakers/Saurabh Chaubey.jpeg";
 import TanmayNag from "./assets_speakers/Tanmay Nag.jpg";
+import TusharSinghBodwal from "./assets_speakers/Tushar Singh Bodwal.png";
 import UpasanaRavikannan from "./assets_speakers/Upasana Ravikannan.jpg";
 import VaasviSrivastava from "./assets_speakers/Vaasvi Srivastava.jpg";
 import YashveerSingh from "./assets_speakers/Yashveer Singh.jpeg";
+import CharuPragya from "./assets_speakers/Charu Pragya.jpg";
+import GautamShroff from "./assets_speakers/Gautam Shroff.jpg";
+import HimanshiSingh from "./assets_speakers/Himanshi-Singh.png";
+import RatnaSingh from "./assets_speakers/Ratna Singh.jpg";
+import RozyMandoliya from "./assets_speakers/Rozy Mandoliya.jpg";
+import SaurabhJain from "./assets_speakers/Saurabh Jain.jpg";
+import SoniaWadhwa from "./assets_speakers/Sonia Wadhwa.webp";
+import SonalKeshwani from "./assets_speakers/Sonal Keshwani.png";
 
 // Map mentor display names to their imported images
 const mentorImages: Record<string, StaticImageData> = {
@@ -113,6 +122,15 @@ const mentorImages: Record<string, StaticImageData> = {
   "Sangramjit Maity": SangramjitMaity,
   "Saurabh Chaubey": SaurabhChaubey,
   "Upasana Ravikannan": UpasanaRavikannan,
+  "Charu Pragya": CharuPragya,
+  "Dr. Gautam Shroff": GautamShroff,
+  "Himanshi Singh": HimanshiSingh,
+  "Ratna Singh": RatnaSingh,
+  "Rozy Maindoliya": RozyMandoliya,
+  "Saurabh Jain": SaurabhJain,
+  "Sonia Wadhwa": SoniaWadhwa,
+	"Prof. Sonal Keshwani": SonalKeshwani,
+  "Tushar Singh Bodwal": TusharSinghBodwal,
 };
 
 // Static fallback mentors data (actual YCB mentors and speakers)
@@ -549,10 +567,129 @@ const staticMentorsData = [
     linkedin: "https://linkedin.com/in/upasana-ravikannan",
     image: "/api/placeholder/200/200",
   },
+  {
+    id: 56,
+    name: "Charu Pragya",
+    position: "Vice Chairperson",
+    organization: "National Anti Doping Agency",
+    linkedin: "https://linkedin.com/in/charu-pragya",
+    image: "/api/placeholder/200/200",
+  },
+  {
+    id: 57,
+    name: "Dr. Gautam Shroff",
+    position: "Faculty",
+    organization: "IIIT Delhi",
+    linkedin: "https://linkedin.com/in/gautam-shroff",
+    image: "/api/placeholder/200/200",
+  },
+  {
+    id: 58,
+    name: "Himanshi Singh",
+    position: "Founding Member",
+    organization: "Bare Craft Consulting",
+    linkedin: "https://linkedin.com/in/himanshi-singh",
+    image: "/api/placeholder/200/200",
+  },
+  {
+    id: 59,
+    name: "Ratna Singh",
+    position: "Founder & CEO",
+    organization: "Earth Safety Valve",
+    linkedin: "https://linkedin.com/in/ratna-singh",
+    image: "/api/placeholder/200/200",
+  },
+  {
+    id: 60,
+    name: "Rozy Maindoliya",
+    position: "Founder",
+    organization: "Third Eye",
+    linkedin: "https://linkedin.com/in/rozy-maindoliya",
+    image: "/api/placeholder/200/200",
+  },
+  {
+    id: 61,
+    name: "Saurabh Jain",
+    position: "Advisor",
+    organization: "Paytm",
+    linkedin: "https://linkedin.com/in/saurabh-jain",
+    image: "/api/placeholder/200/200",
+  },
+  {
+    id: 62,
+    name: "Sonia Wadhwa",
+    position: "Additional Director IT",
+    organization: "Salwan Education Trust",
+    linkedin: "https://linkedin.com/in/sonia-wadhwa",
+    image: "/api/placeholder/200/200",
+  },
+  {
+    id: 63,
+    name: "Prof. Sonal Keshwani",
+    position: "Faculty",
+    organization: "IIIT Delhi",
+    linkedin: "https://linkedin.com/in/sonal-keshwani",
+    image: "/api/placeholder/200/200",
+	},
+	{
+		id: 64,
+		name: "Tushar Singh Bodwal",
+		position: "Senior Project Manager",
+		organization: "Central Square Foundation",
+		linkedin: "https://linkedin.com/in/tushar-singh-bodwal",
+		image: "/api/placeholder/200/200",
+  }
 ];
 
 // YCB Workshop/Edition Data
 const workshopData = {
+	"Winter 2025": [
+	  { id: 1, name: "Aarav Khandelwal", grade: "9", city: "Haryana" },
+	  { id: 2, name: "Aashwi Agrawal", grade: "11", city: "Madhya Pradesh" },
+	  { id: 3, name: "Adamya Singh", grade: "9", city: "Uttarakhand" },
+	  { id: 4, name: "Aditya Sharma", grade: "11", city: "Delhi" },
+	  { id: 5, name: "Anushka Verma", grade: "11", city: "Uttar Pradesh" },
+	  { id: 6, name: "Avni Jain", grade: "11", city: "Delhi" },
+	  { id: 7, name: "Ayaansh Kumar", grade: "9", city: "Karnataka" },
+	  { id: 8, name: "Daksh Gupta", grade: "12", city: "Delhi" },
+	  { id: 9, name: "Dhruv Maheshwari", grade: "9", city: "Karnataka" },
+	  { id: 10, name: "Gourrhari Patnaik", grade: "9", city: "Karnataka" },
+	  { id: 11, name: "Harsh Jain", grade: "11", city: "Delhi" },
+	  { id: 12, name: "Hitarth Thakwani", grade: "9", city: "Maharashtra" },
+	  { id: 13, name: "Ishaan J", grade: "Others", city: "Karnataka" },
+	  { id: 14, name: "Ishaan Prabhakaran", grade: "9", city: "Karnataka" },
+	  { id: 15, name: "Kabeer Sethi", grade: "11", city: "Delhi" },
+	  { id: 16, name: "Kartik Malik", grade: "12", city: "Haryana" },
+	  { id: 17, name: "Kavita", grade: "11", city: "Uttar Pradesh" },
+	  { id: 18, name: "Keisha Gupta", grade: "9", city: "Delhi" },
+	  { id: 19, name: "Krishiv Uniyal", grade: "11", city: "Delhi" },
+	  { id: 20, name: "Kushagra Khare", grade: "11", city: "Maharashtra" },
+	  { id: 21, name: "Mayur Arun", grade: "9", city: "Karnataka" },
+	  { id: 22, name: "Mehul Lohia", grade: "11", city: "Uttar Pradesh" },
+	  { id: 23, name: "Moksh Sindhwani", grade: "11", city: "Delhi" },
+	  { id: 24, name: "Myra Maggu", grade: "9", city: "Maharashtra" },
+	  { id: 25, name: "Nimay Kakumanu", grade: "10", city: "Maharashtra" },
+	  { id: 26, name: "Nirmit Sachdeva", grade: "9", city: "Karnataka" },
+	  { id: 27, name: "Prisha Dhawan", grade: "11", city: "Gujarat" },
+	  { id: 28, name: "Raahini Karunakaram", grade: "11", city: "Delhi" },
+	  { id: 29, name: "Raghuveer Balakumar", grade: "9", city: "Karnataka" },
+	  { id: 30, name: "Reyaansh Agarwal", grade: "11", city: "Delhi" },
+	  { id: 31, name: "Riddhima Sajwan", grade: "9", city: "Delhi" },
+	  { id: 32, name: "Rizul Garg", grade: "11", city: "Delhi" },
+	  { id: 33, name: "Sehaj Kaur", grade: "12", city: "Delhi" },
+	  { id: 34, name: "Shakshi Arun Dugar", grade: "12", city: "Delhi" },
+	  { id: 35, name: "Shaurya Dara", grade: "9", city: "Karnataka" },
+	  { id: 36, name: "Shirin Saini", grade: "9", city: "Delhi" },
+	  { id: 37, name: "Skanda Srivatsa", grade: "9", city: "Karnataka" },
+	  { id: 38, name: "Sneha", grade: "11", city: "Uttar Pradesh" },
+	  { id: 39, name: "Tanish Jain", grade: "10", city: "Uttar Pradesh" },
+	  { id: 40, name: "Tanishq Aggarwal", grade: "11", city: "Delhi" },
+	  { id: 41, name: "Tanush BM", grade: "9", city: "Karnataka" },
+	  { id: 42, name: "Tanush Tejas", grade: "9", city: "Karnataka" },
+	  { id: 43, name: "Tanvi Kumari", grade: "12", city: "Delhi" },
+	  { id: 44, name: "Yash Dalal", grade: "10", city: "Karnataka" },
+	  { id: 45, name: "Yukti Agrawal", grade: "11", city: "Karnataka" }
+	],
   "Summer 2025": [
     { id: 1, name: "Aarav Jain", grade: "11", city: "Delhi" },
     { id: 2, name: "Aarav Tyagi", grade: "12", city: "Uttar Pradesh" },
@@ -791,7 +928,7 @@ const NetworkPage = () => {
   const [activeTab, setActiveTab] = useState<"speakers" | "participants">(
     "speakers"
   );
-  const [selectedWorkshop, setSelectedWorkshop] = useState("Summer 2025");
+  const [selectedWorkshop, setSelectedWorkshop] = useState("Winter 2025");
   const [showAllMentors, setShowAllMentors] = useState(false);
   const [mentorsData, setMentorsData] = useState(staticMentorsData);
   const [loading, setLoading] = useState(true);

@@ -33,7 +33,9 @@ export default function WorldMap(
     "Sikkim",
     "Bihar",
     "Karnataka",
-    "Punjab",
+		"Punjab",
+		"Uttarakhand",
+		"Madhya Pradesh",
   ];
 
   // Create cityColors object for precolored states
