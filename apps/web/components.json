@@ -22,6 +22,8 @@
     "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
     "@magicui": "https://magicui.design/r/{name}.json",
     "@shadcnblocks": "https://shadcnblocks.com/r/{name}",
-    "@skiper-ui": "https://skiper-ui.com/registry/{name}.json"
+    "@skiper-ui": "https://skiper-ui.com/registry/{name}.json",
+    "@spell": "https://spell.sh/r/{name}.json",
+    "@efferd": "https://efferd.com/r/{name}.json"
   }
 }

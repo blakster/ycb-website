@@ -10,6 +10,15 @@
     "Noto Color Emoji";
   --font-heading:
     var(--font-newsreader), "Newsreader", "Times New Roman", serif;
+
+  /* Brand Colors */
+  --color-brand-gold: #ffd700;
+  --color-brand-gold-muted: #ffc20a;
+  --color-brand-gold-bright: #ffe27a;
+  --color-brand-navy: #050a30;
+  --color-brand-navy-light: #1e3a5f;
+  --color-brand-cream: #f7fafc;
+  --color-brand-cream-alt: #f3f6fb;
 }
 
 html,
@@ -168,7 +177,7 @@ body {
 
 /* Force opaque backgrounds for important cards where global transparency rules may apply */
 .force-bg {
-  background-color: #071036 !important;
+  background-color: var(--color-brand-navy) !important;
   color: inherit;
 }
 
@@ -177,13 +186,13 @@ body {
 /* ========================= */
 
 :root {
-  --ycb-gold: #ffd700;
-  --ycb-gold-2: #ffc20a;
-  --ycb-cream: #f7fafc;
-  --ycb-cream-2: #f3f6fb;
-  --ycb-navy-1: #050a30;
-  --ycb-navy-2: #0f1729;
-  --ycb-navy-3: #1e3a5f;
+  --ycb-gold: var(--color-brand-gold);
+  --ycb-gold-2: var(--color-brand-gold-muted);
+  --ycb-cream: var(--color-brand-cream);
+  --ycb-cream-2: var(--color-brand-cream-alt);
+  --ycb-navy-1: var(--color-brand-navy);
+  --ycb-navy-2: oklch(0.205 0 0); /* matches --card in dark mode */
+  --ycb-navy-3: var(--color-brand-navy-light);
 }
 
 /* Light surface gradients */
@@ -202,7 +211,7 @@ body {
       800px circle at 15% 0%,
       rgba(255, 215, 0, 0.05),
       transparent 55%
-    ), linear-gradient(180deg, #050a1a 0%, #0f1729 50%, #1e3a5f 100%);
+    ), linear-gradient(180deg, #050a1a 0%, var(--ycb-navy-2) 50%, var(--ycb-navy-3) 100%);
 }
 
 /* Gentle radial spot overlay for accenting sections */
@@ -231,12 +240,16 @@ body {
   background: linear-gradient(90deg, transparent, var(--ycb-gold), transparent);
 }
 
-/* Gradient text utility (gold) */
+/* Gradient text utility (gold) - Reserved for large headings */
 .gradient-text-gold {
-  background: linear-gradient(90deg, #ffe27a, #ffd700, #ffb800);
+  background: linear-gradient(90deg, #ffe27a, var(--color-brand-gold), #ffb800);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.text-brand-gold {
+  color: var(--color-brand-gold);
 }
 
 /* Gold gradient button helper */
@@ -273,12 +286,10 @@ body {
 }
 
 .card-gradient-testimonial {
-  background: linear-gradient(135deg, #ffffff 0%, #fefefe 30%, #f8fafc 100%);
-  border: 1px solid rgba(255, 215, 0, 0.08);
+  background: white;
+  border: 1px solid rgba(255, 215, 0, 0.15);
   border-radius: 12px;
-  box-shadow:
-    0 4px 8px -2px rgba(0, 0, 0, 0.06),
-    0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.05);
 }
 
 .stats-card-gradient {
@@ -365,25 +376,23 @@ body {
 
 /* Sequential typing with zero delays - faster speed */
 .typewriter-1 { 
-  animation: typing-1 0.6s steps(9, end) 0.3s both; 
+  animation: typing 0.6s steps(9, end) 0.3s both; 
 }
 /* Keep 2nd and 3rd lines invisible until their typing animation begins */
 .typewriter-2 {
   opacity: 0;
   animation:
-    typing-2 0.6s steps(9, end) 0.9s both,
+    typing 0.6s steps(9, end) 0.9s both,
     make-visible 0s linear 0.9s forwards;
 }
 .typewriter-3 {
   opacity: 0;
   animation:
-    typing-3 0.6s steps(10, end) 1.5s both,
+    typing 0.6s steps(10, end) 1.5s both,
     make-visible 0s linear 1.5s forwards;
 }
 
-@keyframes typing-1 { from { max-width: 0; } to { max-width: 100%; } }
-@keyframes typing-2 { from { max-width: 0; } to { max-width: 100%; } }
-@keyframes typing-3 { from { max-width: 0; } to { max-width: 100%; } }
+@keyframes typing { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 
 /* Instantly flips opacity to 1 at the start time (uses delay above). */
 @keyframes make-visible { to { opacity: 1; } }
@@ -446,6 +455,7 @@ body {
 }
 
 .hover-lift {
+  will-change: transform, box-shadow;
   transition:
     transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -459,6 +469,7 @@ body {
 }
 
 .hover-scale {
+  will-change: transform;
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

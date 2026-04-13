@@ -608,9 +608,9 @@ const AboutPage = () => {
     "Travel & Logistics": [
       {
         question:
-          "How should students arriving from outside Delhi plan their travel?",
+          "How should students arriving from outside Chennai plan their travel?",
         answer:
-          "We provide free pick-up and drop services for students from Delhi airports, railway stations, and bus stops for outside Delhi participants. Parents will be informed in advance about travel arrangements.",
+          "We provide free pick-up and drop services for students from Chennai airports, railway stations, and bus stops for outside Chennai participants. Parents will be informed in advance about travel arrangements.",
       },
       {
         question: "What should participants bring with them?",
@@ -934,7 +934,7 @@ const AboutPage = () => {
                             Applications Open
                           </div>
                           <div className="text-gray-600 text-sm">
-                            October 25, 2025
+                          April 13, 2026
                           </div>
                         </div>
                       </div>
@@ -947,7 +947,7 @@ const AboutPage = () => {
                             Application Deadline
                           </div>
                           <div className="text-gray-600 text-sm">
-                            December 7, 2025
+                          May 15, 2026
                           </div>
                         </div>
                       </div>
@@ -957,10 +957,10 @@ const AboutPage = () => {
                         </div>
                         <div>
                           <div className="font-semibold text-[#050a30]">
-                            Round 1 Results Announced
+                            Round 1 Results
                           </div>
                           <div className="text-gray-600 text-sm">
-                            December 8, 2025
+                          May 17, 2026
                           </div>
                         </div>
                       </div>
@@ -973,7 +973,7 @@ const AboutPage = () => {
                             Group Discussion Slots
                           </div>
                           <div className="text-gray-600 text-sm">
-                            Nov 30 – Dec 10, 2025
+                          April 25 - May 20, 2026
                           </div>
                         </div>
                       </div>
@@ -986,7 +986,7 @@ const AboutPage = () => {
                             Final Shortlist
                           </div>
                           <div className="text-gray-600 text-sm">
-                            December 12, 2025
+                          May 25, 2026
                           </div>
                         </div>
                       </div>
@@ -999,7 +999,7 @@ const AboutPage = () => {
                             Bootcamp Dates
                           </div>
                           <div className="text-gray-600 text-sm">
-                            December 17–23, 2025 at IIT Delhi Campus
+                          June 17-23, 2026 at IIT Madras campus
                           </div>
                         </div>
                       </div>
@@ -1245,7 +1245,7 @@ const AboutPage = () => {
                       <div className="space-y-4">
                         <div className="rounded-lg bg-blue-50 p-4">
                           <div className="font-bold text-2xl text-[#050a30]">
-                            ₹17,500
+                            ₹20,000
                           </div>
                           <div className="text-gray-600 text-sm">
                             Program Fee (includes meals during the program)
@@ -1263,7 +1263,7 @@ const AboutPage = () => {
                             Optional
                           </span>
                           <div className="font-bold text-[#050a30] text-xl">
-                            ₹12,000
+                            ₹13,500
                           </div>
                           <div className="text-gray-600 text-sm">
                             Residence Fee (optional, includes stay & additional
@@ -1282,8 +1282,7 @@ const AboutPage = () => {
                             </span>
                           </div>
                           <div className="mt-3 text-gray-800 text-sm">
-                            <strong>Deadline to apply:</strong> November 22,
-                            2025
+                            <strong>Deadline to apply:</strong> May 15, 2026
                           </div>
                         </div>
                       </div>
@@ -1367,8 +1366,7 @@ const AboutPage = () => {
 
                         <div className="text-sm">
                           <span className="text-gray-600">
-                            <strong>Deadline to apply:</strong> November 15,
-                            2025
+                            <strong>Deadline to apply:</strong> May 10, 2026
                           </span>
                         </div>
 

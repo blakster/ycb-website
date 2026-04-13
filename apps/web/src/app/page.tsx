@@ -116,7 +116,7 @@ const NotificationBanner = () => {
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-          Applications for the 7th edition of Young Changemakers Bootcamp will open soon.
+          Applications for the 7th edition of Young Changemakers Bootcamp from 17th to 23rd June, 2026 at IIT Madras campus are open now.
           </p>
           <div className="flex items-center gap-2">
             <button

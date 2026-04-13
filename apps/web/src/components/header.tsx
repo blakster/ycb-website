@@ -199,13 +199,11 @@ export default function Header() {
               asChild
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90 lg:px-4 lg:py-2 lg:text-sm xl:px-6 xl:text-base"
             >
-              <a
-                href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
-                rel="noopener noreferrer"
-                target="_blank"
+              <Link
+                href="/apply"
               >
                 Apply
-              </a>
+              </Link>
             </Button>
           </div>
 
@@ -216,17 +214,17 @@ export default function Header() {
               asChild
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90"
             >
-              <a
-                href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
-                rel="noopener noreferrer"
-                target="_blank"
+              <Link
+								href="/apply"
               >
                 Apply
-              </a>
+              </Link>
             </Button>
 
             {/* Mobile Hamburger Menu Button */}
             <button
+              aria-controls="mobile-menu"
+              aria-expanded={isMobileMenuOpen}
               aria-label="Toggle mobile menu"
               className="flex h-8 w-8 flex-col items-center justify-center space-y-1.5"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -257,6 +255,7 @@ export default function Header() {
         className={`fixed inset-y-0 left-0 z-60 w-80 transform bg-soft-dark transition-transform duration-300 md:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
+        id="mobile-menu"
       >
         <div className="flex h-full flex-col px-6">
           {/* Logo Section at Top */}

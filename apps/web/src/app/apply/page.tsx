@@ -9,16 +9,16 @@ import { Card } from "@/components/ui/card";
 export default function ApplyPage() {
   const applications = [
     {
-      id: "ycb-2025",
-      title: "Young Changemakers Bootcamp 2025",
+      id: "ycb-2026",
+      title: "Young Changemakers Bootcamp 2026",
       description:
         "Join our flagship program for young innovators and social entrepreneurs",
       image:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=250&fit=crop",
-      deadline: "March 15, 2025",
+      deadline: "May 15, 2026",
       status: "Open",
-      duration: "6 months",
-      location: "Multiple Cities",
+      duration: "1 week",
+      location: "Chennai",
     },
     {
       id: "summer-intensive",

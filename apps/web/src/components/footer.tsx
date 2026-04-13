@@ -169,7 +169,7 @@ export default function Footer() {
               © Copyright 2025 The Tale of Humankind . All Rights Reserved
             </p>
             <p className="mt-2 text-white/60 text-xs">
-              IIT-Delhi is not responsible for design & delivery of the program.
+              IIT-Madras is not responsible for design & delivery of the program.
             </p>
           </div>
         </div>
