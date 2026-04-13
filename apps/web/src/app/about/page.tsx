@@ -889,7 +889,7 @@ const AboutPage = () => {
                           <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-green-600" />
                           <span>
                             Must be in Grade 9, 10, 11, or 12 while attending in
-                            June 2025.
+                            June 2026.
                           </span>
                         </li>
                         <li className="flex items-start gap-3">
@@ -1565,7 +1565,7 @@ const AboutPage = () => {
           {/* Additional Info */}
           <p className="mt-6 text-gray-600 text-sm">
             Applications are open! Don't miss your chance to be part of YCB
-            2025.
+            2026.
           </p>
         </div>
       </section>

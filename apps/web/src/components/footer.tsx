@@ -166,7 +166,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="mt-12 border-white/10 border-t pt-8 text-center">
             <p className="text-sm text-white/70">
-              © Copyright 2025 The Tale of Humankind . All Rights Reserved
+              © Copyright 2026 The Tale of Humankind . All Rights Reserved
             </p>
             <p className="mt-2 text-white/60 text-xs">
               IIT-Madras is not responsible for design & delivery of the program.
