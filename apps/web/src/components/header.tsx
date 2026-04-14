@@ -200,7 +200,7 @@ export default function Header() {
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90 lg:px-4 lg:py-2 lg:text-sm xl:px-6 xl:text-base"
             >
             <a
-              href="https://forms.gle/uFtp1SYmFRWu2qJh8"
+              href="https://forms.gle/BML4T2DxpKX5qffYA"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -217,7 +217,7 @@ export default function Header() {
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90"
             >
               <a
-                href="https://forms.gle/uFtp1SYmFRWu2qJh8"
+                href="https://forms.gle/BML4T2DxpKX5qffYA"
                 rel="noopener noreferrer"
                 target="_blank"
               >

@@ -531,7 +531,7 @@ export default function HowToApply() {
                     </p>
                     <a
                       className="btn-gold-hover group hover:-translate-y-1 hover-glow inline-flex items-center justify-center gap-2 rounded-[12px] border-2 border-[gold] bg-[gold] px-8 py-4 font-bold text-[#050a30] transition-all duration-500 hover:border-[#FFD700] hover:bg-[#FFD700] hover:text-[#050a30] hover:shadow-lg"
-                      href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
+                      href="https://forms.gle/BML4T2DxpKX5qffYA"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
