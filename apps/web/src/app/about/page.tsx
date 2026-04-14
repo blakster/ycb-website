@@ -358,7 +358,7 @@ const AboutPage = () => {
         "Changemaking for a better world",
         "Identifying Problems through Observation",
         "Hands-on Robotics Workshop",
-        "Local Trip to Delhi",
+        "Local Trip",
         "Icebreaker Games",
       ],
       icon: <Search className="h-5 w-5 md:h-6 md:w-6" />,
@@ -447,7 +447,7 @@ const AboutPage = () => {
     {
       day: "Day 6",
       title: "Closing & Departure",
-      description: ["Departure from IIT Delhi campus"],
+      description: ["Departure from IIT Madras campus"],
       icon: <GraduationCap className="h-5 w-5 md:h-6 md:w-6" />,
       color: "from-pink-400 to-pink-600",
     },
