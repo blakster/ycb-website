@@ -16,6 +16,7 @@ export default function Header() {
   const isNetworkPage = pathname === "/network";
   const isAboutPage = pathname === "/about";
   const isEditionsPage = pathname === "/editions";
+  const isWeekendEditionPage = pathname === "/weekend";
   const isFeaturedPage = pathname === "/featured";
   const isContactPage = pathname === "/contact";
   const isApplyPage = pathname === "/apply";
@@ -36,6 +37,7 @@ export default function Header() {
     isAboutPage ||
     isLegalPage ||
     isEditionsPage ||
+    isWeekendEditionPage ||
     isFeaturedPage ||
     isContactPage ||
     isApplyPage;
@@ -97,6 +99,8 @@ export default function Header() {
     to: string;
     label: string;
     isRoute: boolean;
+    /** Soft pulse/glow to draw attention (e.g. new program) */
+    highlight?: boolean;
   };
 
   const links: LinkConfig[] = [
@@ -104,6 +108,12 @@ export default function Header() {
     { to: "/about", label: "About YCB", isRoute: true },
     { to: "/network", label: "Our Network", isRoute: true },
     { to: "/editions", label: "Previous Editions", isRoute: false },
+    {
+      to: "/weekend",
+      label: "Weekend Edition",
+      isRoute: true,
+      highlight: true,
+    },
     { to: "/featured", label: "Featured", isRoute: false },
     { to: "/contact", label: "Contact", isRoute: true },
   ];
@@ -136,9 +146,9 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation - Hidden on mobile */}
-          <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 hidden md:block">
-            <nav className="flex items-center gap-4 text-lg lg:gap-6 xl:gap-8">
-              {links.map(({ to, label, isRoute }) => {
+          <div className="hidden flex-1 items-center justify-center md:flex lg:ml-[-2%]">
+            <nav className="flex items-center gap-3 text-lg lg:gap-5 xl:gap-8">
+              {links.map(({ to, label, isRoute, highlight }) => {
                 // Don't highlight any navigation items when on legal pages
                 const isActive =
                   !isLegalPage &&
@@ -147,11 +157,11 @@ export default function Header() {
                 if (isRoute) {
                   return (
                     <Link
-                      className={`link-hover group relative font-bold text-[12px] leading-[18px] lg:text-[13px] lg:leading-[20px] xl:text-[15px] xl:leading-[24.32px] ${
+                      className={`link-hover group relative whitespace-nowrap font-bold text-[12px] leading-[18px] lg:text-[13px] lg:leading-[20px] xl:text-[15px] xl:leading-[24.32px] ${
                         isActive
                           ? "text-white"
                           : "text-white/80 hover:text-white"
-                      }`}
+                      } ${highlight && !isLegalPage ? "nav-link-weekend-highlight" : ""}`}
                       href={to as any}
                       key={to}
                     >
@@ -167,7 +177,7 @@ export default function Header() {
                 }
                 return (
                   <a
-                    className={`link-hover group relative font-bold text-[12px] leading-[18px] lg:text-[13px] lg:leading-[20px] xl:text-[15px] xl:leading-[24.32px] ${
+                    className={`link-hover group relative whitespace-nowrap font-bold text-[12px] leading-[18px] lg:text-[13px] lg:leading-[20px] xl:text-[15px] xl:leading-[24.32px] ${
                       isActive ? "text-white" : "text-white/80 hover:text-white"
                     }`}
                     href={to}
@@ -199,13 +209,7 @@ export default function Header() {
               asChild
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90 lg:px-4 lg:py-2 lg:text-sm xl:px-6 xl:text-base"
             >
-            <a
-              href="https://forms.gle/BML4T2DxpKX5qffYA"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Apply
-            </a>
+              <Link href="/apply">Apply</Link>
             </Button>
           </div>
 
@@ -216,13 +220,7 @@ export default function Header() {
               asChild
               className="smooth-hover bg-[gold] px-3 py-1.5 font-bold text-[#1a365d] text-xs transition-all duration-300 hover:scale-105 hover:bg-[gold]/90"
             >
-              <a
-                href="https://forms.gle/BML4T2DxpKX5qffYA"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Apply
-              </a>
+              <Link href="/apply">Apply</Link>
             </Button>
 
             {/* Mobile Hamburger Menu Button */}
@@ -282,7 +280,7 @@ export default function Header() {
 
           {/* Navigation Links */}
           <nav className="flex flex-col space-y-6 text-center">
-            {links.map(({ to, label, isRoute }) => {
+            {links.map(({ to, label, isRoute, highlight }) => {
               const isActive =
                 pathname === to || (to !== "/" && pathname.startsWith(to));
 
@@ -291,7 +289,7 @@ export default function Header() {
                   <Link
                     className={`font-semibold text-xl transition-colors ${
                       isActive ? "text-[gold]" : "text-white hover:text-[gold]"
-                    }`}
+                    } ${highlight ? "nav-link-weekend-highlight" : ""}`}
                     href={to as any}
                     key={to}
                     onClick={() => setIsMobileMenuOpen(false)}

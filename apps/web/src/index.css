@@ -19,6 +19,10 @@
   --color-brand-navy-light: #1e3a5f;
   --color-brand-cream: #f7fafc;
   --color-brand-cream-alt: #f3f6fb;
+
+  /* Custom Breakpoints */
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1100px;
 }
 
 html,
@@ -585,6 +589,25 @@ body {
 
 .animate-fade-in-up {
   animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navbar: soft gold glow pulse for highlighted program links */
+@keyframes nav-gold-pulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 6px rgba(255, 215, 0, 0.35),
+      0 0 0 rgba(255, 215, 0, 0);
+  }
+  50% {
+    text-shadow:
+      0 0 14px rgba(255, 215, 0, 0.65),
+      0 0 22px rgba(255, 215, 0, 0.25);
+  }
+}
+
+.nav-link-weekend-highlight {
+  animation: nav-gold-pulse 2.4s ease-in-out infinite;
 }
 
 /* =============================== */

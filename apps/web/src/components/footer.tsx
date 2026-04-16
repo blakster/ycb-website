@@ -65,6 +65,14 @@ export default function Footer() {
                 <li>
                   <a
                     className="transition-colors hover:text-[gold]"
+                    href="/weekend"
+                  >
+                    YCB Weekend Edition
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="transition-colors hover:text-[gold]"
                     href="/featured"
                   >
                     Featured
