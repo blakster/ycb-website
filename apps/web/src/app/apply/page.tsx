@@ -177,7 +177,7 @@ export default function ApplyPage() {
                       asChild
                       className="group/btn w-full smooth-hover bg-[gold] font-bold text-[#1a365d] transition-all duration-300 hover:scale-[1.02] hover:bg-[gold]/90"
                     >
-                      <Link
+                      <a
                         className="flex items-center justify-center gap-2 font-bold"
                         href={program.formUrl}
                         rel="noopener noreferrer"
@@ -185,7 +185,7 @@ export default function ApplyPage() {
                       >
                         Apply Now
                         <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
+                      </a>
                     </Button>
                   </div>
                 </div>
