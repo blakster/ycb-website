@@ -447,7 +447,7 @@ const AboutPage = () => {
     {
       day: "Day 6",
       title: "Closing & Departure",
-      description: ["Departure from IIT Madras campus"],
+      description: ["Departure from IIIT Delhi (Delhi bootcamp) / IIT Madras (Chennai bootcamp)"],
       icon: <GraduationCap className="h-5 w-5 md:h-6 md:w-6" />,
       color: "from-pink-400 to-pink-600",
     },
@@ -608,9 +608,9 @@ const AboutPage = () => {
     "Travel & Logistics": [
       {
         question:
-          "How should students arriving from outside Chennai plan their travel?",
+          "How should students arriving from outside the city plan their travel?",
         answer:
-          "We provide free pick-up and drop services for students from Chennai airports, railway stations, and bus stops for outside Chennai participants. Parents will be informed in advance about travel arrangements.",
+          "We provide free pick-up and drop-off services for students from the nearest airports, railway stations, and bus stops for outside city participants. Parents will be informed in advance about travel arrangements. It will be outside Delhi-NCR for Delhi & outside Chennai for the Chennai bootcamp, respectively.",
       },
       {
         question: "What should participants bring with them?",
@@ -999,7 +999,8 @@ const AboutPage = () => {
                             Bootcamp Dates
                           </div>
                           <div className="text-gray-600 text-sm">
-                          June 17-23, 2026 at IIT Madras campus
+                          Delhi: June 7-13, 2026 at IIIT Delhi<br/>
+                          Chennai: June 17-23, 2026 at IIT Madras
                           </div>
                         </div>
                       </div>
