@@ -79,14 +79,12 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                <li>
                   <a
                     className="transition-colors hover:text-[gold]"
                     href="/apply"
                   >
                     Apply
                   </a>
-                </li>
                 </li>
               </ul>
             </div>
