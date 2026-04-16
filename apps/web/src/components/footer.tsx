@@ -79,14 +79,14 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
+                <li>
                   <a
                     className="transition-colors hover:text-[gold]"
-                    href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
-                    rel="noopener noreferrer"
-                    target="_blank"
+                    href="/apply"
                   >
                     Apply
                   </a>
+                </li>
                 </li>
               </ul>
             </div>
