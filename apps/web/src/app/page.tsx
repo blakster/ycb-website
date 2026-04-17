@@ -116,7 +116,7 @@ const NotificationBanner = () => {
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-          Applications for the 7th edition of Young Changemakers Bootcamp are now open till 15 May, 2026..<br/><br/>
+          Applications for the 7th edition of Young Changemakers Bootcamp are now open till 15 May, 2026.<br/><br/>
 📍 Delhi: 7th to 13th June, 2026<br/>
 Venue: IIIT Delhi<br/><br/>
 📍 Chennai: 17th to 23rd June, 2026<br/>
