@@ -947,7 +947,7 @@ const AboutPage = () => {
                             Application Deadline
                           </div>
                           <div className="text-gray-600 text-sm">
-                          May 15, 2026
+                          May 22, 2026
                           </div>
                         </div>
                       </div>
@@ -960,7 +960,7 @@ const AboutPage = () => {
                             Round 1 Results
                           </div>
                           <div className="text-gray-600 text-sm">
-                          May 17, 2026
+                          May 24, 2026
                           </div>
                         </div>
                       </div>
@@ -973,7 +973,7 @@ const AboutPage = () => {
                             Group Discussion Slots
                           </div>
                           <div className="text-gray-600 text-sm">
-                          April 25 - May 20, 2026
+                          April 25 - May 28, 2026
                           </div>
                         </div>
                       </div>
@@ -986,7 +986,7 @@ const AboutPage = () => {
                             Final Shortlist
                           </div>
                           <div className="text-gray-600 text-sm">
-                          May 25, 2026
+                          May 30, 2026
                           </div>
                         </div>
                       </div>
