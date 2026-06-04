@@ -116,9 +116,8 @@ const NotificationBanner = () => {
             </h3>
           </div>
           <p className="text-gray-700 text-xs leading-relaxed sm:text-sm">
-          The deadline to apply for the 7th edition of the Young Changemakers Bootcamp has been extended to 02 June 2026.<br/><br/>
-📍 Delhi: 7th to 13th June, 2026<br/>
-Venue: IIIT Delhi<br/><br/>
+						The deadline to apply for the 7th edition of the Young Changemakers Bootcamp (Chennai edition) has been extended to 09 June 2026.
+						<br /><br />
 📍 Chennai: 17th to 23rd June, 2026<br/>
 Venue: IIT Madras
           </p>
