@@ -1,10 +1,15 @@
 "use client";
 
-import { ArrowRight, Award, Calendar, Clock } from "lucide-react";
+import { ArrowRight, Award, Calendar, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import ycbFlashcard from "@/assets/flashcards/ycb.jpg";
+import delhiFlashcard from "@/assets/flashcards/delhi.jpg";
+import hyderabadFlashcard from "@/assets/flashcards/hyderabad.jpeg";
+import kharagpurFlashcard from "@/assets/flashcards/kharagpur.png";
+import mandiFlashcard from "@/assets/flashcards/mandi.jpg";
 
 export default function ApplyPage() {
   const applications = [
@@ -12,37 +17,63 @@ export default function ApplyPage() {
       id: "ycb-2026",
       title: "Young Changemakers Bootcamp 2026",
       description:
-        "Join our flagship program for young innovators and social entrepreneurs",
-      image:
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=250&fit=crop",
+        "Join our flagship program for the next generation of builders and leaders",
+      image: ycbFlashcard,
+      date: "June 17-23, 2026",
       deadline: "May 15, 2026",
       status: "Open",
       duration: "1 week",
       location: "Chennai",
+      formUrl: "https://forms.gle/BML4T2DxpKX5qffYA"
     },
     {
-      id: "summer-intensive",
-      title: "Summer Innovation Intensive",
-      description: "Fast-track program for rapid prototyping and validation",
-      image:
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=250&fit=crop",
-      deadline: "May 30, 2025",
+      id: "weekend-edition-1",
+      title: "YCB Weekend Edition 1",
+      description: "Build solutions inside one of India’s leading tech-driven campuses",
+      image: delhiFlashcard,
+      date: "May 22-24, 2026",
+      deadline: "May 15, 2026",
       status: "Open",
-      duration: "2 months",
-      location: "Delhi & Mumbai",
+      duration: "3 days",
+      location: "Delhi",
+      formUrl: "https://forms.gle/jCWWYpi7dB4fBCxRA"
     },
+    // {
+    //   id: "weekend-edition-2",
+    //   title: "YCB Weekend Edition 2",
+    //   description: "Explore ideas where deep tech and innovation come together",
+    //   image: hyderabadFlashcard,
+    //   date: "May 29-31, 2026",
+    //   deadline: "May 15, 2026",
+    //   status: "Open",
+    //   duration: "3 days",
+    //   location: "Hyderabad",
+    //   formUrl: "https://forms.gle/jCWWYpi7dB4fBCxRA"
+    // },
     {
-      id: "leadership-program",
-      title: "Youth Leadership Development",
-      description:
-        "Comprehensive leadership training for emerging changemakers",
-      image:
-        "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=250&fit=crop",
-      deadline: "July 15, 2025",
-      status: "Coming Soon",
-      duration: "4 months",
-      location: "Bangalore & Pune",
+      id: "weekend-edition-2",
+      title: "YCB Weekend Edition 2",
+      description: "Turn ideas into action where legacy meets innovation",
+      image: kharagpurFlashcard,
+      date: "June 5-7, 2026",
+      deadline: "May 15, 2026",
+      status: "Open",
+      duration: "3 days",
+      location: "Kharagpur",
+      formUrl: "https://forms.gle/jCWWYpi7dB4fBCxRA"
     },
+    // {
+    //   id: "weekend-edition-4",
+    //   title: "YCB Weekend Edition 4",
+    //   description: "Think and build with purpose amidst the mountains",
+    //   image: mandiFlashcard,
+    //   date: "June 12-14, 2026",
+    //   deadline: "May 15, 2026",
+    //   status: "Open",
+    //   duration: "3 days",
+    //   location: "Mandi",
+    //   formUrl: "https://forms.gle/jCWWYpi7dB4fBCxRA"
+    // },
   ];
 
   return (
@@ -51,7 +82,7 @@ export default function ApplyPage() {
       <section className="relative px-4 pt-32 pb-12">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="mb-4 font-bold text-3xl md:text-5xl">
-            <span className="text-gray-900">Available </span>
+            <span className="text-gray-900">Upcoming </span>
             <span className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent">
               Programs
             </span>
@@ -65,15 +96,15 @@ export default function ApplyPage() {
 
       {/* Application Cards Section */}
       <section className="bg-gray-50 px-4 pt-4 pb-12">
-        <div className="mx-auto max-w-5xl">
-          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {applications.map((program) => (
               <Card
-                className="group relative gap-0 overflow-hidden border border-gray-200 bg-white p-0 transition-all duration-300 hover:border-gold/50 hover:shadow-xl"
+                className="group relative flex flex-col overflow-hidden border border-gray-200 bg-white p-0 transition-all duration-300 hover:border-gold/50 hover:shadow-xl"
                 key={program.id}
               >
                 {/* Program Image */}
-                <div className="relative h-48 overflow-hidden rounded-t-xl">
+                <div className="relative h-56 overflow-hidden">
                   <Image
                     alt={program.title}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -87,9 +118,7 @@ export default function ApplyPage() {
                       className={`rounded-full px-3 py-1 font-bold text-xs ${
                         program.status === "Open"
                           ? "bg-green-500 text-white"
-                          : program.status === "Opening Soon"
-                            ? "bg-amber-500 text-white"
-                            : "bg-orange-500 text-white"
+                          : "bg-orange-500 text-white"
                       }`}
                     >
                       {program.status}
@@ -98,36 +127,47 @@ export default function ApplyPage() {
                 </div>
 
                 {/* Content */}
-                <div className="mt-0 flex h-full flex-col p-6">
-                  <h3 className="mb-3 font-bold text-gray-900 text-xl">
+                <div className="flex flex-grow flex-col p-6 pt-4">
+                  <h3 className="mb-2 font-bold text-gray-900 text-xl">
                     {program.title}
                   </h3>
 
-                  <p className="mb-4 flex-grow text-gray-600 leading-relaxed">
+                  <p className="mb-4 text-gray-600 text-sm leading-relaxed">
                     {program.description}
                   </p>
 
                   {/* Program Details */}
-                  <div className="mb-6 space-y-2">
-                    <div className="flex items-center gap-3 text-gray-500">
+                  <div className="mb-6 space-y-3">
+                    <div className="flex items-center gap-3 text-gray-600">
                       <Calendar className="h-4 w-4 text-gold" />
-                      <span className="text-sm">
-                        Deadline: {program.deadline}
-                      </span>
+                      <div className="flex flex-col">
+                        <span className="text-xs font-semibold uppercase text-gray-400">Date</span>
+                        <span className="text-sm font-medium">{program.date}</span>
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-3 text-gray-500">
+                    <div className="flex items-center gap-3 text-gray-600">
                       <Clock className="h-4 w-4 text-gold" />
-                      <span className="text-sm">
-                        Duration: {program.duration}
-                      </span>
+                      <div className="flex flex-col">
+                        <span className="text-xs font-semibold uppercase text-gray-400">Duration</span>
+                        <span className="text-sm font-medium">{program.duration}</span>
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-3 text-gray-500">
-                      <div className="h-4 w-4 rounded-full bg-gold" />
-                      <span className="text-sm">
-                        Location: {program.location}
-                      </span>
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <MapPin className="h-4 w-4 text-gold" />
+                      <div className="flex flex-col">
+                        <span className="text-xs font-semibold uppercase text-gray-400">Location</span>
+                        <span className="text-sm font-medium">{program.location}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <Award className="h-4 w-4 text-gold" />
+                      <div className="flex flex-col">
+                        <span className="text-xs font-semibold uppercase text-gray-400">Deadline</span>
+                        <span className="text-sm font-medium">{program.deadline}</span>
+                      </div>
                     </div>
                   </div>
 
@@ -135,36 +175,17 @@ export default function ApplyPage() {
                   <div className="mt-auto">
                     <Button
                       asChild
-                      className={`group/btn w-full transition-all duration-300 ${
-                        program.status === "Open" ||
-                        program.status === "Opening Soon"
-                          ? "smooth-hover bg-[gold] font-bold text-[#1a365d] hover:scale-105 hover:bg-[gold]/90"
-                          : "cursor-not-allowed bg-gray-200 text-gray-500 hover:bg-gray-300"
-                      }`}
-                      disabled={program.status === "Coming Soon"}
+                      className="group/btn w-full smooth-hover bg-[gold] font-bold text-[#1a365d] transition-all duration-300 hover:scale-[1.02] hover:bg-[gold]/90"
                     >
-                      <Link
+                      <a
                         className="flex items-center justify-center gap-2 font-bold"
-                        href={
-                          program.status !== "Coming Soon"
-                            ? "https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
-                            : "#"
-                        }
-                        rel={
-                          program.status !== "Coming Soon"
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
-                        target={
-                          program.status !== "Coming Soon"
-                            ? "_blank"
-                            : undefined
-                        }
+                        href={program.formUrl}
+                        rel="noopener noreferrer"
+                        target="_blank"
                       >
-                        {program.status === "Coming Soon"
-                          ? "Coming Soon"
-                          : "Apply"}
-                      </Link>
+                        Apply Now
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      </a>
                     </Button>
                   </div>
                 </div>
@@ -194,9 +215,7 @@ export default function ApplyPage() {
               >
                 <Link
                   className="flex items-center gap-2"
-                  href="https://docs.google.com/forms/d/1EArNLQpDdzHXXbT8y8xk3q7ZPGy0ZgmG0SI6cAV8ZEA/edit?usp=drivesdk"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                  href="/apply"
                 >
                   Apply Now
                   <ArrowRight className="h-4 w-4" />
